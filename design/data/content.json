@@ -1,0 +1,217 @@
+{
+  "_note": "單一內容來源 (single source of truth)。原網站文字 + 圖片轉寫，已修正錯字。各設計概念由 build.mjs 讀此檔產生靜態 HTML。",
+  "site": {
+    "url": "https://www.funhtrips.com/",
+    "name_zh": "知行學旅",
+    "name_en": "Fun Horizon Educational Trips",
+    "legal_zh": "知行學旅有限公司",
+    "legal_en": "Fun Horizon Educational Trips Co., Ltd.",
+    "tagline_zh": "教育旅行｜服務學習｜學術交流",
+    "tagline_en": "Customized School Trips · Service / CAS Trips · Academic Visits",
+    "seo": {
+      "title_zh": "知行學旅｜台灣 IB CAS 服務學習與教育旅行規劃",
+      "title_en": "Fun Horizon Educational Trips | IB CAS & Educational Travel in Taiwan",
+      "description_zh": "知行學旅為國際學校與一般學校規劃台灣教育旅行：IB CAS 服務學習、華語與文化營、科目考察與 STEAM、學術參訪。每趟行程融入至少 2 項聯合國 SDGs，北中南路線 5–7 天，可客製。",
+      "description_en": "Taiwan-based educational travel company designing IB CAS & service-learning trips, Chinese language and culture camps, subject/STEAM trips and academic visits — every trip integrates at least 2 UN SDGs.",
+      "keywords": ["Taiwan CAS trip", "IB CAS Taiwan", "service learning Taiwan", "Taiwan school trip", "台灣遊學 國際學校", "教育旅行", "服務學習", "華語營", "SDGs 教育旅行"]
+    },
+    "contact": {
+      "address_zh": "330 桃園市桃園區中埔一街 341 號 3 樓",
+      "address_en": "3F, No. 341, Zhongpu 1st St., Taoyuan Dist., Taoyuan City 330, Taiwan",
+      "phone": "+886-911-747-378",
+      "phone_href": "tel:+886911747378",
+      "email": "office@funhorizonedutrips.com",
+      "linkedin": "https://www.linkedin.com/company/99383727",
+      "tax_id": "94214379"
+    }
+  },
+  "intro": {
+    "zh": "知行學旅是設立於台灣、致力推動聯合國永續發展目標（SDGs）的遊學（研學）公司，主要運營教育旅行與商務交流。我們擅長跨域合作，與旅行社、學校、企業組織建立夥伴關係，替客戶規劃並執行符合課程或交流目的的行程。",
+    "en": "Fun Horizon Educational Trips is a Taiwan-based educational travel company dedicated to the UN Sustainable Development Goals (SDGs). We design and operate specialty educational trips and business exchanges for schools and enterprises worldwide, customised through partnerships with travel agencies, corporations and organisations."
+  },
+  "about": {
+    "who_zh": "知行學旅由擁有超過十年海外學校與非營利組織工作經驗的教師創立，在台灣與香港的國際學校及 NPO 累積了豐富的教學與教育旅行規劃經驗。",
+    "who_en": "Founded by teachers and NPO workers with over 10 years of experience organising educational trips for international schools and NPOs in Taiwan and Hong Kong.",
+    "vision_zh": "連結教育與企業界，透過客製的主題化旅行，協助青年學子拓展視野、實踐所學、接觸全球議題、培養全球公民意識。",
+    "vision_en": "To connect education and business, helping young people expand their horizons, practise what they learn and engage with global issues through travel.",
+    "mission_zh": "協助學校和企業設計符合需求的遊學、學術或商務交流行程，並協同旅行社執行，減少溝通時間成本，更好地達成旅行目的。",
+    "mission_en": "To design itineraries aligned with each client's curriculum or goals and execute them with travel-agency partners — less back-and-forth, better outcomes.",
+    "partners": ["學校 Schools", "旅行社 Travel Agencies", "課程 Curriculum", "企業組織 Enterprises", "全球議題 Global Issues"]
+  },
+  "audiences": [
+    { "id": "ib", "zh": "國際學校（IB CAS）", "en": "International / IB schools", "service": "cas" },
+    { "id": "school", "zh": "一般學校（服務學習、學科）", "en": "Schools (service learning, subjects)", "service": "subject" },
+    { "id": "higher", "zh": "大學與企業（學術參訪）", "en": "Universities & companies", "service": "academic" },
+    { "id": "language", "zh": "華語與文化營", "en": "Chinese language camps", "service": "language" }
+  ],
+  "services": [
+    { "id": "cas", "zh": "IB CAS 行程", "en": "IB CAS Trips", "summary_zh": "創意、活動、服務是 IB 國際文憑課程核心。我們的 CAS 行程符合 IB 要求，並融入至少兩項聯合國永續發展目標。", "summary_en": "CAS programmes that meet IB requirements and cover at least 2 UN SDGs in every trip.", "image": "cas-sunset-hikers.jpg" },
+    { "id": "service", "zh": "服務學習", "en": "Service Learning", "summary_zh": "非 IB 學校也能在學習旅行中加入服務元素。我們分析需求，挑選合適的台灣在地組織共同規劃。", "summary_en": "Not an IB school? We analyse your needs and partner with local organisations to add a service element.", "image": "taoyuan-coast-algal-reef.jpg" },
+    { "id": "language", "zh": "語言與文化", "en": "Language & Culture", "summary_zh": "台灣在地文化、華人歷史文化與原住民文化；並與華語中心及專業教師合作，提供短期華語營。", "summary_en": "Taiwanese, Chinese and indigenous culture, plus short-term Chinese language camps with professional teachers.", "image": "culture-tainan-lanterns.jpg" },
+    { "id": "subject", "zh": "科目考察・STEAM", "en": "Subject & STEAM Trips", "summary_zh": "依學科標準、課程目標或跨學科專題（PBL）設計的體驗式學科旅行。", "summary_en": "Experiential trips built around subject criteria, curriculum goals or interdisciplinary PBL projects.", "image": "steam-tech-cube-workshop.jpg" },
+    { "id": "academic", "zh": "學術參訪", "en": "Academic Visits", "summary_zh": "為大學與企業設計專業主題行程，串連學術單位、NPO 與企業，協助在地聯絡與接待。", "summary_en": "Thematic visits for universities and companies, connecting academia, NPOs and industry in Taiwan.", "image": "academic-jingmei-courtroom.jpg" },
+    { "id": "pd", "zh": "研習・演講・工作坊", "en": "PD, Talks & Workshops", "summary_zh": "人才庫擁有各領域持證專業講師，歡迎台灣企業與學校洽詢。", "summary_en": "Certified instructors across many fields for schools and companies in Taiwan.", "image": "steam-kids-workshop.jpg" }
+  ],
+  "sdgs": {
+    "3":  { "zh": "良好健康與福祉", "en": "Good Health and Well-being", "color": "#4C9F38" },
+    "10": { "zh": "減少不平等", "en": "Reduced Inequalities", "color": "#DD1367" },
+    "11": { "zh": "永續城鄉", "en": "Sustainable Cities and Communities", "color": "#FD9D24" },
+    "12": { "zh": "責任消費與生產", "en": "Responsible Consumption and Production", "color": "#BF8B2E" },
+    "13": { "zh": "氣候行動", "en": "Climate Action", "color": "#3F7E44" },
+    "14": { "zh": "保育海洋生態", "en": "Life Below Water", "color": "#0A97D9" },
+    "15": { "zh": "保育陸域生態", "en": "Life on Land", "color": "#56C02B" },
+    "16": { "zh": "和平正義與健全制度", "en": "Peace, Justice and Strong Institutions", "color": "#00689D" }
+  },
+  "cas_routes": [
+    {
+      "id": "taoyuan",
+      "region_zh": "北台灣", "region_en": "Northern Taiwan",
+      "place_zh": "桃園", "place_en": "Taoyuan",
+      "days": "5–7",
+      "themes_zh": ["海岸生態復育", "海洋客家文化", "傳統漁業文化與社區營造", "循環再生永續產業"],
+      "themes_en": ["Coastal ecological conservation", "Ocean Hakka culture", "Fishing heritage & community development", "Recycling to regeneration"],
+      "creativity": [["再生塑木手作與設計", "Crafts with recycled plastic wood"], ["海客美食工作坊", "Ocean Hakka food workshop"], ["海岸生物美術創作", "Coastal animal art creation"]],
+      "activity": [["獨木舟／立槳", "Canoeing / SUP"], ["自行車遊", "Bike tour"], ["海岸生態探索", "Coastal ecology exploration"]],
+      "service": [["百年石滬重建", "Century-old fishing stone weir reconstruction"], ["淨灘", "Beach cleaning"], ["海洋廢棄物回收與分類", "Marine debris recycling & sorting"]],
+      "note_zh": "學生將完整體驗：回收廢棄物 → PET 粒料 → 再生塑木 → 環保產品。",
+      "note_en": "Students follow the full loop: recycled waste → PET pellets → recycled plastic wood → eco-friendly products.",
+      "sdgs": [11, 12, 13, 14],
+      "image": "taoyuan-coast-algal-reef.jpg",
+      "image_alt_zh": "桃園海岸的藻礁與浪花",
+      "image_alt_en": "Algal reef and waves on the Taoyuan coast"
+    },
+    {
+      "id": "chiayi",
+      "region_zh": "中台灣", "region_en": "Central Taiwan",
+      "place_zh": "嘉義・阿里山", "place_en": "Chiayi & Alishan",
+      "days": "5–7",
+      "themes_zh": ["阿里山探索與森林保育", "高山茶園服務", "食農教育", "高齡關懷"],
+      "themes_en": ["Alishan exploration & forest conservation", "High-mountain tea farm service", "Food & agriculture education", "Elderly care"],
+      "creativity": [["山產蔬菜料理工作坊", "Mountain vegetable cooking workshop"], ["檜木木作工作坊", "Hinoki woodcraft workshop"], ["台灣高山茶體驗", "Taiwanese high-mountain tea ceremony"]],
+      "activity": [["採茶體驗", "Tea picking"], ["阿里山健行", "Hiking in Alishan"], ["阿里山小火車山林探索", "Alishan Forest Railway adventure"]],
+      "service": [["高山茶園服務", "Service at a high-mountain tea farm"], ["淨山服務", "Mountain clean-up"], ["長者關懷服務", "Elderly care"]],
+      "note_zh": "",
+      "note_en": "",
+      "sdgs": [3, 12, 13, 15],
+      "image": "chiayi-alishan-tea-farm.jpg",
+      "image_alt_zh": "陽光灑落阿里山高山茶園",
+      "image_alt_en": "Sunlight over a high-mountain tea farm in Alishan, Chiayi"
+    },
+    {
+      "id": "kaohsiung",
+      "region_zh": "南台灣", "region_en": "Southern Taiwan",
+      "place_zh": "高雄・美濃", "place_en": "Kaohsiung & Meinong",
+      "days": "5–7",
+      "themes_zh": ["客家文化體驗", "高齡關懷", "社區營造與語言復振", "動物生命教育"],
+      "themes_en": ["Hakka culture", "Elderly care", "Community development & language revitalisation", "Animal-care life education"],
+      "creativity": [["油紙傘彩繪", "Oil-paper umbrella painting"], ["客家擂茶與美食工作坊", "Hakka lei-cha & food workshop"], ["生命教育故事創作", "Animal life-story creation"]],
+      "activity": [["美濃單車行", "Biking around Meinong"], ["柴山健行", "Hiking Shoushan (Chaishan)"], ["高雄環狀輕軌體驗", "Kaohsiung Circular Light Rail"]],
+      "service": [["在地學校文化交流與英語服務", "Cultural exchange & English service at a local school"], ["長者關懷服務", "Elderly care"], ["有機農事服務", "Organic farming"], ["動物保護園區服務", "Service at an animal protection site"]],
+      "note_zh": "",
+      "note_en": "",
+      "sdgs": [3, 11, 12, 15],
+      "image": "meinong-oil-paper-umbrellas.jpg",
+      "image_alt_zh": "美濃油紙傘彩繪教室牆上的彩色紙傘",
+      "image_alt_en": "Hand-painted oil-paper umbrellas in a Meinong workshop"
+    }
+  ],
+  "language": {
+    "learning_zh": "與台灣專業華語中心及中文教師合作，提供母語（文學）與非母語學習者的短期華語課程。",
+    "learning_en": "Short-term Chinese programmes for native (literacy) and non-native learners, with professional language centres and teachers.",
+    "learning_where": "台北／高雄 Taipei / Kaohsiung",
+    "learning_days": "7–21",
+    "culture_zh": "文化體驗是所有行程的核心：傳統中華文化、台灣在地文化與原住民文化，依學校與學生需求設計。",
+    "culture_en": "Every programme includes cultural activities — traditional Chinese, local Taiwanese and indigenous cultures — tailored to your school.",
+    "plans": [
+      { "id": "A", "zh": "方案 A：中文課程 + 文化體驗", "en": "Program A: Chinese Learning + Cultural Experience" },
+      { "id": "B", "zh": "方案 B：文化體驗 + 中文應用", "en": "Program B: Cultural Immersion + Chinese Practice" }
+    ],
+    "compare": [
+      { "row_zh": "方案優點", "row_en": "Advantages", "A_zh": "兼顧語言學習與文化體驗，兩者分開安排，行程更有彈性、內容更多元。", "A_en": "Balances both, with a flexible and diverse itinerary.", "B_zh": "浸潤式學習，活動多元，可依學習或學校課程需求設計。", "B_en": "Immersive, activity-rich, with Chinese practice built in." },
+      { "row_zh": "中文學習", "row_en": "Chinese learning", "A_zh": "於大學華語中心或私人華語教室上課。", "A_en": "Classes at a university or private language centre.", "B_zh": "行程中結合語言練習活動，學生在行程中應用華語。", "B_en": "Language practice woven into the itinerary." },
+      { "row_zh": "文化體驗", "row_en": "Cultural experience", "A_zh": "由知行學旅安排或部分配合語言中心，依學生興趣設計。", "A_en": "Arranged by us or partly with the language centre.", "B_zh": "由知行學旅安排，依學生興趣與需求設計。", "B_en": "Arranged by us around student interests." },
+      { "row_zh": "主題學習", "row_en": "Thematic learning", "A_zh": "視需求將主題融入中文課或文化活動。", "A_en": "Themes integrated into classes or cultural activities.", "B_zh": "學校可指定主題，行程依主題設計。", "B_en": "Itinerary designed around a theme your school specifies." },
+      { "row_zh": "地點與天數", "row_en": "Location & days", "A_zh": "5–30 天；大學校園、單一城市或跨縣市。", "A_en": "5–30 days; single or multiple cities.", "B_zh": "5–30 天；單一城市或跨縣市。", "B_en": "5–30 days; single or multiple cities." },
+      { "row_zh": "計費方式", "row_en": "Pricing", "A_zh": "語言課依語言中心標準；其餘行程由知行學旅計費。", "A_en": "Classes charged by the language centre; other activities by us.", "B_zh": "依行程與活動內容由知行學旅計費。", "B_en": "Bespoke itinerary arranged and charged by us." }
+    ],
+    "other_zh": "語言交換、在地學校交流、大學參訪、服務學習、在地企業組織參訪、SDGs 等，可依需求與預算安排。",
+    "other_en": "Language exchange, local school visits, university tours, service learning, company visits, SDGs and more — arranged to your needs and budget.",
+    "included_zh": "方案皆含台灣在地食宿與交通安排，並有專業人員隨團帶領。",
+    "included_en": "Includes local accommodation, meals and transport in Taiwan, led by professionals."
+  },
+  "subject_trips": [
+    { "dest_zh": "台北・宜蘭・東北海岸", "dest_en": "Northeast Coast & Yilan", "name_zh": "北海岸文化與地理考查", "name_en": "Culture & Geography of the Northeast Coast", "subjects_zh": "地理、歷史", "subjects_en": "Geography, History", "highlights_zh": "大屯火山群、海蝕海岸、黃金博物館", "highlights_en": "Tatun Volcano Group, erosional coast, Gold Museum", "grade_zh": "小學至高中", "grade_en": "All grades", "days": "5–7" },
+    { "dest_zh": "台北・花蓮", "dest_en": "Taipei & Hualien", "name_zh": "花蓮地理考查", "name_en": "Geography Trip to Hualien", "subjects_zh": "地理、歷史", "subjects_en": "Geography, History", "highlights_zh": "花東縱谷、斷崖、太魯閣峽谷、珊瑚礁與礫石海岸", "highlights_en": "East Rift Valley, cliffs, Taroko Gorge, coral reefs, gravel beaches", "grade_zh": "國中至高中", "grade_en": "Secondary", "days": "5–7" },
+    { "dest_zh": "台北・桃園・新竹", "dest_en": "Taipei, Taoyuan, Hsinchu", "name_zh": "北台灣科技與商業考察", "name_en": "Technology & Business in Northern Taiwan", "subjects_zh": "科學、商業", "subjects_en": "Science, Business", "highlights_zh": "青創基地、科學園區、半導體博物館", "highlights_en": "Start-up hubs, Science Park, semiconductor museum", "grade_zh": "國中至高中", "grade_en": "Secondary", "days": "5–7" },
+    { "dest_zh": "桃園", "dest_en": "Taoyuan", "name_zh": "科學與地理考察", "name_en": "Science & Geography in Taoyuan", "subjects_zh": "化學、生物、地理", "subjects_en": "Chemistry, Biology, Geography", "highlights_zh": "塑膠回收與再生全程考察、循環經濟、桃園海岸生態（藻礁、濕地、沙丘、石滬）", "highlights_en": "Plastic regeneration, circular recycling, Taoyuan coast (algal reefs, wetlands, dunes, stone weirs)", "grade_zh": "國中至高中", "grade_en": "Secondary", "days": "5–7" },
+    { "dest_zh": "桃園・新竹", "dest_en": "Taoyuan, Hsinchu", "name_zh": "STEAM 考察", "name_en": "STEAM Trip", "subjects_zh": "STEAM", "subjects_en": "STEAM", "highlights_zh": "運算思維、邏輯編程、離線機器人、電子積木、科學園區、半導體博物館", "highlights_en": "Computational thinking, logic programming, offline robots & tech-cube workshop, Science Park, semiconductor museum", "grade_zh": "小學至高中", "grade_en": "All grades", "days": "5–7" },
+    { "dest_zh": "台南・嘉義・南投", "dest_en": "Tainan, Chiayi, Nantou", "name_zh": "台灣中南部人文考察", "name_en": "Culture & History of Central-Southern Taiwan", "subjects_zh": "地理、歷史", "subjects_en": "Geography, History", "highlights_zh": "台南歷史古都、嘉義阿里山、南投日月潭", "highlights_en": "Historic Tainan, Alishan, Sun Moon Lake", "grade_zh": "國中至高中", "grade_en": "Secondary", "days": "5–7" },
+    { "dest_zh": "高雄・屏東", "dest_en": "Kaohsiung, Pingtung", "name_zh": "南台灣文學與人文考察", "name_en": "Literature & Humanities in Southern Taiwan", "subjects_zh": "文學、地理、歷史", "subjects_en": "Literature, Geography, History", "highlights_zh": "城市文學走讀、熱帶氣候人文考查", "highlights_en": "Literary city walks, tropical climate and culture", "grade_zh": "小學至高中", "grade_en": "All grades", "days": "5–7" },
+    { "dest_zh": "台北／高雄", "dest_en": "Taipei / Kaohsiung", "name_zh": "體育交流與訓練", "name_en": "Sports Training & Exchange", "subjects_zh": "體育（羽球、籃球）", "subjects_en": "PE (badminton, basketball)", "highlights_zh": "羽球、籃球訓練或與在地學校體育交流", "highlights_en": "Badminton/basketball training or exchange with local schools", "grade_zh": "小學至高中", "grade_en": "All grades", "days": "5–7" }
+  ],
+  "circular_economy": {
+    "title_zh": "塑膠循環經濟", "title_en": "Plastic Circular Economy",
+    "steps": [["廢棄物管理", "Waste management"], ["塑膠回收", "Plastic recycling"], ["破碎造粒", "Shredding & granulation"], ["研發", "R&D"], ["產品開發", "Product development"]],
+    "facts_zh": ["合作夥伴以 80% 海洋與陸地回收塑膠製成環保再生塑木（海廢認證標章）。", "每 100 公斤再生塑木可減少 274 公斤碳排放。", "製程廢料可完全回收再製，真正實踐循環經濟。"],
+    "facts_en": ["Our partner makes recycled composite wood from 80% ocean and land plastic waste (Ocean Waste Certification Mark).", "Every 100 kg of recycled composite wood cuts 274 kg of carbon emissions.", "All manufacturing waste can be fully recycled and remanufactured."]
+  },
+  "academic": {
+    "intro_zh": "串連學術單位、在地非營利組織與企業，我們的學術參訪不只停留在拜訪，而是深入交流與探索，了解台灣的學術、產業與社會文化脈絡，建立有意義的合作關係。",
+    "intro_en": "Connecting universities, local NPOs and businesses, our academic visits go beyond site visits to real exchange — insight into Taiwan's academic, industrial and socio-cultural context, and lasting partnerships.",
+    "sample": {
+      "name_zh": "政治學與歷史 台灣研習團", "name_en": "Political Science & History — Taiwan Study Trip",
+      "where_zh": "台北、台南或其他相關城市", "where_en": "Taipei, Tainan or other related cities",
+      "days": "7–14",
+      "sdgs": [3, 10, 11, 16],
+      "blocks": [
+        { "zh": "參訪", "en": "Visit", "items": [["中央政府機關", "Central government"], ["歷史景點", "Historical sites"], ["政黨總部", "Political party headquarters"]] },
+        { "zh": "探索", "en": "Explore", "items": [["政治體制", "Political system"], ["司法體系", "Judicial system"], ["台灣民主轉型", "Taiwan's democratic transition"]] },
+        { "zh": "參與", "en": "Participate", "items": [["公共事務與社會關懷議題", "Public affairs & social care issues"], ["大學學術講座", "University academic seminars"]] },
+        { "zh": "研究", "en": "Research", "items": [["街頭訪談：認識台灣人", "Street interviews with Taiwanese people"], ["台美關係", "Taiwan–U.S. relations"]] }
+      ],
+      "image": "academic-jingmei-courtroom.jpg",
+      "image_alt_zh": "學生在景美人權博物館法庭聆聽導覽",
+      "image_alt_en": "Students in the courtroom at the Jingmei White Terror Memorial Park"
+    }
+  },
+  "stats": [
+    { "num": "10+", "zh": "年國際學校與 NPO 經驗", "en": "years with international schools & NPOs" },
+    { "num": "3", "zh": "條北中南 CAS 路線", "en": "CAS routes: north, central, south" },
+    { "num": "8", "zh": "條科目考察行程", "en": "subject trip templates" },
+    { "num": "2+", "zh": "項 SDGs／每趟行程", "en": "UN SDGs in every trip" }
+  ],
+  "inquiry": {
+    "_note": "CTA 表單欄位定義（各概念共用欄位名稱，後端之後再接）",
+    "types": [
+      { "value": "cas", "zh": "IB CAS 行程", "en": "IB CAS trip" },
+      { "value": "service", "zh": "服務學習", "en": "Service learning" },
+      { "value": "language", "zh": "華語與文化營", "en": "Language & culture" },
+      { "value": "subject", "zh": "科目考察／STEAM", "en": "Subject / STEAM" },
+      { "value": "academic", "zh": "學術參訪", "en": "Academic visit" },
+      { "value": "pd", "zh": "研習／工作坊", "en": "PD / workshop" },
+      { "value": "unsure", "zh": "還不確定，想先聊聊", "en": "Not sure yet" }
+    ],
+    "group_sizes": [
+      { "value": "1-15", "zh": "15 人以下", "en": "Under 15" },
+      { "value": "16-30", "zh": "16–30 人", "en": "16–30" },
+      { "value": "31-60", "zh": "31–60 人", "en": "31–60" },
+      { "value": "60+", "zh": "60 人以上", "en": "60+" }
+    ],
+    "fields": ["type", "group_size", "grade", "month", "school", "name", "email", "message"]
+  },
+  "images": {
+    "hero": { "file": "hero-nanhu-sunrise.jpg", "alt_zh": "南湖大山日出與山稜", "alt_en": "Sunrise over the ridges of Nanhu Mountain, Taiwan" },
+    "gallery": [
+      { "file": "culture-tainan-lanterns.jpg", "alt_zh": "台南花燈下的人潮", "alt_en": "Crowds under lanterns in Tainan" },
+      { "file": "culture-keelung-night-market.jpg", "alt_zh": "基隆廟口夜市的黃色燈籠", "alt_en": "Yellow lanterns at Keelung Miaokou Night Market" },
+      { "file": "culture-temple-lanterns.jpg", "alt_zh": "廟宇屋簷下的彩繪燈籠", "alt_en": "Painted lanterns under a temple roof" },
+      { "file": "culture-dadaocheng-market.jpg", "alt_zh": "大稻埕的彩色編織袋", "alt_en": "Colourful woven bags in Dadaocheng" },
+      { "file": "culture-keelung-harbor-sunset.jpg", "alt_zh": "基隆港夕陽", "alt_en": "Sunset over Keelung harbour" },
+      { "file": "culture-jinguashi-ruins.jpg", "alt_zh": "金瓜石十三層遺址山景", "alt_en": "The Thirteen Levels ruins in Jinguashi" },
+      { "file": "steam-robot-kits.jpg", "alt_zh": "STEAM 工作坊的機器人作品", "alt_en": "Robot builds from a STEAM workshop" },
+      { "file": "academic-human-rights-lecture.jpg", "alt_zh": "學術參訪團聆聽人權講座", "alt_en": "Academic group at a human-rights lecture" },
+      { "file": "subject-kenting-coast-aerial.jpg", "alt_zh": "墾丁海岸空拍", "alt_en": "Aerial view of the Kenting coastline" },
+      { "file": "academic-zengwen-reservoir.jpg", "alt_zh": "曾文水庫全景", "alt_en": "Panorama of Zengwen Reservoir" }
+    ]
+  }
+}

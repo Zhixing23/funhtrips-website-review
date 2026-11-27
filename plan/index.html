@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>funhtrips.com 網站健檢</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: single readable column; site map as an indented tree; issues as a ranked list with severity chips */
+:root {
+  --bg: #f3f6f3;
+  --surface: #ffffff;
+  --fg: #1d2a26;
+  --muted: #5b6b65;
+  --line: #d6e0da;
+  --accent: #2f6b55;      /* forest green */
+  --accent-soft: #e1eee7;
+  --sun: #b7791f;         /* Alishan tea-field amber */
+  --sun-soft: #f7ecd9;
+  --high: #b4473a;
+  --high-soft: #f6e2de;
+  --ok: #2f6b55;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Noto Sans TC", "PingFang TC", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121a17; --surface: #1a2420; --fg: #e4ece8; --muted: #9aaba4; --line: #2c3a35;
+    --accent: #7cc3a5; --accent-soft: #1f3a2f; --sun: #e0b062; --sun-soft: #3a2e1b;
+    --high: #ee8a7c; --high-soft: #3d2420; --ok: #7cc3a5; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121a17; --surface: #1a2420; --fg: #e4ece8; --muted: #9aaba4; --line: #2c3a35;
+  --accent: #7cc3a5; --accent-soft: #1f3a2f; --sun: #e0b062; --sun-soft: #3a2e1b;
+  --high: #ee8a7c; --high-soft: #3d2420; --ok: #7cc3a5; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.75;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+.wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 3.25rem; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.3; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; }
+a { color: var(--accent); }
+.eyebrow { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+section { display: flex; flex-direction: column; gap: 1.1rem; }
+.section-head { display: flex; flex-direction: column; gap: .35rem; }
+.lede { color: var(--muted); }
+
+/* Header */
+header { padding-top: 3rem; display: flex; flex-direction: column; gap: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; color: var(--muted); font-size: .9rem; }
+.verdict {
+  background: var(--accent-soft); border-radius: 14px; padding: 1.25rem 1.4rem;
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.verdict strong { color: var(--accent); }
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: .4rem; }
+.three div { background: var(--surface); border-radius: 10px; padding: .75rem .9rem; font-size: .92rem; line-height: 1.55; }
+.three b { display: block; font-family: var(--font-display); color: var(--high); font-size: .8rem; letter-spacing: .06em; }
+@media (max-width: 620px) { .three { grid-template-columns: 1fr; } }
+
+/* Site tree */
+.tree { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.3rem; overflow-x: auto; }
+.tree ul { list-style: none; margin: 0; padding: 0; }
+.tree > ul > li > ul { margin-left: .4rem; border-left: 2px solid var(--line); padding-left: 1.1rem; margin-top: .5rem; display: flex; flex-direction: column; gap: .7rem; }
+.node-name { font-weight: 700; }
+.node-url { font-family: ui-monospace, Menlo, monospace; font-size: .8rem; color: var(--muted); margin-left: .4rem; }
+.node-note { display: block; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+.platform { font-size: .9rem; color: var(--muted); }
+.gaps { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip { display: inline-block; font-size: .82rem; padding: .2rem .7rem; border-radius: 999px; background: var(--sun-soft); color: var(--sun); font-weight: 500; }
+
+/* Strengths */
+.checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .65rem; }
+.checks li { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: .5rem; }
+.checks li::before { content: "✓"; color: var(--ok); font-weight: 700; }
+
+/* Issues */
+.issues { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+.issue { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.3rem; display: flex; flex-direction: column; gap: .55rem; }
+.issue-top { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; }
+.rank { font-family: var(--font-display); font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sev { font-size: .75rem; font-weight: 700; padding: .12rem .6rem; border-radius: 999px; letter-spacing: .04em; }
+.sev.high { background: var(--high-soft); color: var(--high); }
+.sev.mid { background: var(--sun-soft); color: var(--sun); }
+.issue ul { margin: 0; padding-left: 1.2rem; }
+.issue p, .issue li { color: var(--fg); }
+code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; background: var(--accent-soft); padding: .05rem .35rem; border-radius: 4px; }
+
+/* Table */
+.table-box { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 520px; }
+th, td { text-align: left; padding: .7rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .78rem; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+td.now { color: var(--high); }
+td.fix { color: var(--ok); font-weight: 500; }
+.note { font-size: .92rem; color: var(--muted); }
+
+/* Recommendations */
+.recs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+.rec { border-top: 3px solid var(--accent); background: var(--surface); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: .4rem; }
+.rec p { font-size: .94rem; color: var(--muted); line-height: 1.65; }
+.rec.wide { grid-column: 1 / -1; }
+@media (max-width: 620px) { .recs { grid-template-columns: 1fr; } }
+.audiences { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .2rem; }
+.audiences span { font-size: .8rem; background: var(--accent-soft); color: var(--accent); padding: .15rem .6rem; border-radius: 999px; }
+
+footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Website Review · 網站健檢</span>
+    <h1>funhtrips.com 網站內容與架構分析</h1>
+    <div class="meta">
+      <span>知行學旅 Fun Horizon Educational Trips</span>
+      <span>分析日期：2026 年 11 月 27 日</span>
+      <span>範圍：全站 6 頁</span>
+    </div>
+    <div class="verdict">
+      <p><strong>一句話總結：</strong>網站的內容方向正確，也看得出專業（IB CAS、SDGs、北中南 3 條路線）。但它目前比較像「線上名片」，還不是能幫你接案的網站。</p>
+      <div class="three">
+        <div><b>問題 1</b>沒有讓客戶行動的入口</div>
+        <div><b>問題 2</b>行程細節都放在圖片裡</div>
+        <div><b>問題 3</b>Google 幾乎讀不到網站內容</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Site Structure</span>
+      <h2>一、網站架構</h2>
+      <p class="platform">平台：Webnode（拖拉式架站工具）｜共 6 頁｜中英雙語放在同一頁</p>
+    </div>
+    <div class="tree">
+      <ul>
+        <li><span class="node-name">首頁 Home</span><span class="node-url">/</span>
+          <span class="node-note">公司介紹、6 項服務簡介、聯絡資訊</span>
+          <ul>
+            <li><span class="node-name">關於我們 About Us</span><span class="node-url">/about-us/</span>
+              <span class="node-note">我們是誰、願景與使命</span></li>
+            <li><span class="node-name">服務學習 CAS / Service</span><span class="node-url">/servicelearning/</span>
+              <span class="node-note">北：桃園海岸生態｜中：嘉義阿里山｜南：高雄美濃，各 5–7 天</span></li>
+            <li><span class="node-name">語言與文化 Language &amp; Culture</span><span class="node-url">/language-culture/</span>
+              <span class="node-note">華語課程 7–21 天（台北／高雄）、文化體驗</span></li>
+            <li><span class="node-name">科目考察 Subjects &amp; STEAM</span><span class="node-url">/subjects/</span>
+              <span class="node-note">客製學科旅行、PBL 跨學科專題</span></li>
+            <li><span class="node-name">學術參訪 Academic Visit</span><span class="node-url">/academicvisit/</span>
+              <span class="node-note">高等教育與企業交流</span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p>首頁列了 6 項服務，選單卻只有 4 個服務頁。<strong>「研習、演講、工作坊 PD」沒有自己的頁面</strong>；「IB CAS」和「服務學習」則合在同一頁。</p>
+    <p class="lede">目前網站缺少的頁面或功能：</p>
+    <div class="gaps">
+      <span class="chip">聯絡表單</span>
+      <span class="chip">過往案例</span>
+      <span class="chip">客戶見證</span>
+      <span class="chip">常見問題 FAQ</span>
+      <span class="chip">部落格</span>
+      <span class="chip">PD 工作坊頁</span>
+      <span class="chip">Facebook／Instagram 連結</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Strengths</span>
+      <h2>二、內容優點</h2>
+    </div>
+    <ul class="checks">
+      <li><span><strong>定位清楚：</strong>「SDGs + 教育旅行」，每趟 CAS 行程至少涵蓋 2 項 SDGs，是很好的差異化賣點。</span></li>
+      <li><span><strong>路線具體：</strong>北中南 3 條 CAS 路線都有主題、地點和天數，好懂。</span></li>
+      <li><span><strong>全站雙語：</strong>中英對照，符合國際學校客群。</span></li>
+      <li><span><strong>團隊可信：</strong>「關於我們」說明創辦團隊有 10 年以上國際學校與 NPO 經驗。</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Issues</span>
+      <h2>三、主要問題</h2>
+      <p class="lede">依對接案的影響大小排序。</p>
+    </div>
+    <ol class="issues">
+      <li class="issue">
+        <div class="issue-top"><span class="rank">1</span><h3>沒有行動入口</h3><span class="sev high">影響最大</span></div>
+        <p>沒有「索取提案」或「預約諮詢」按鈕，也沒有表單。客戶看完只能自己抄 email。國際學校老師很忙，多一個步驟就可能流失。</p>
+      </li>
+      <li class="issue">
+        <div class="issue-top"><span class="rank">2</span><h3>行程細節都在圖片裡</h3><span class="sev high">高</span></div>
+        <p>「行程概覽」和「方案選擇」都是 PNG 圖片（例如 <code>CAS- Taoyuan Program.png</code>），因此：</p>
+        <ul>
+          <li>Google 搜尋不到圖片裡的文字</li>
+          <li>手機上不容易看清楚</li>
+          <li>每次改內容都要重做圖片</li>
+        </ul>
+      </li>
+      <li class="issue">
+        <div class="issue-top"><span class="rank">3</span><h3>SEO 基礎設定幾乎是空的</h3><span class="sev high">高</span></div>
+        <ul>
+          <li>首頁標題是「funhtrips.com」，描述只有「Home」。有人搜尋 “Taiwan CAS trip” 或「台灣遊學 國際學校」時，Google 不知道這個網站和這些主題有關。</li>
+          <li>全站約 30 張圖片，全部沒有 alt 替代文字。</li>
+          <li>沒有結構化資料（給 Google 看的公司資訊），中英文也沒有分成兩個語言版本。</li>
+        </ul>
+      </li>
+      <li class="issue">
+        <div class="issue-top"><span class="rank">4</span><h3>缺少信任證明</h3><span class="sev mid">中</span></div>
+        <p>看不到合作學校、行程照片故事、學生或老師的回饋，也沒有成果數字（例如「已服務 X 所學校、X 位學生」）。對國際學校採購來說，這常是決定的關鍵。</p>
+      </li>
+      <li class="issue">
+        <div class="issue-top"><span class="rank">5</span><h3>品牌細節不一致</h3><span class="sev mid">中</span></div>
+        <ul>
+          <li>網站網域是 funhtrips.com，email 卻是另一個網域，容易讓人困惑。</li>
+          <li>頁尾有 Webnode 廣告標章，看起來不夠專業。</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Quick Fixes</span>
+      <h2>四、文字錯誤與細節</h2>
+      <p class="lede">這些現在就能在 Webnode 修改，不用等新網站。</p>
+    </div>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>位置</th><th>現在</th><th>建議</th></tr></thead>
+        <tbody>
+          <tr><td>服務學習頁</td><td class="now">Meninong District</td><td class="fix">Meinong District</td></tr>
+          <tr><td>服務學習頁</td><td class="now">Middle Taiwan</td><td class="fix">Central Taiwan</td></tr>
+          <tr><td>首頁</td><td class="now">such us subject criteria</td><td class="fix">such as subject criteria</td></tr>
+          <tr><td>首頁</td><td class="now">亦提供亦提供</td><td class="fix">刪掉重複的字</td></tr>
+          <tr><td>首頁</td><td class="now">is not IB school</td><td class="fix">is not an IB school</td></tr>
+          <tr><td>首頁</td><td class="now">+886-0911-747378</td><td class="fix">+886-911-747-378（國際格式不寫 0）</td></tr>
+          <tr><td>頁尾</td><td class="now">© 2024</td><td class="fix">更新為今年</td></tr>
+          <tr><td>首頁</td><td class="now">LinkedIn 顯示整串網址</td><td class="fix">改成圖示或「LinkedIn」文字</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Next Website</span>
+      <h2>五、新網站建議方向</h2>
+    </div>
+    <div class="recs">
+      <div class="rec wide">
+        <h3>依客戶類型分入口</h3>
+        <p>讓訪客 3 秒內找到「我的那一頁」。</p>
+        <div class="audiences">
+          <span>國際學校（IB CAS）</span><span>一般學校（服務學習、學科）</span><span>大學與企業（學術參訪）</span><span>華語營</span>
+        </div>
+      </div>
+      <div class="rec">
+        <h3>每條行程一頁，用文字寫</h3>
+        <p>寫清楚天數、地點、對應的 SDGs、學習成果和範例日程。</p>
+      </div>
+      <div class="rec">
+        <h3>每頁都有「索取客製提案」</h3>
+        <p>按鈕加簡短表單：學校、人數、年級、預計月份、學習目標。</p>
+      </div>
+      <div class="rec">
+        <h3>新增案例見證頁與 PD 頁</h3>
+        <p>用照片、引言和數字說故事，補上工作坊與講師介紹。</p>
+      </div>
+      <div class="rec">
+        <h3>評估更換平台</h3>
+        <p>Framer、Wix Studio 或 WordPress 在多語系和 SEO 上比 Webnode 有彈性。架構定了再一起評估。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>資料來源：2026 年 11 月 27 日實際瀏覽 www.funhtrips.com 全站 6 頁、sitemap.xml 與頁面原始碼。</footer>
+</div>
+</body>
+</html>

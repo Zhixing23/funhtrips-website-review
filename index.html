@@ -1,296 +1,761 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" data-concept="03-island-map">
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>知行學旅｜台灣 IB CAS 服務學習與教育旅行規劃</title>
+<meta name="description" content="知行學旅為國際學校與一般學校規劃台灣教育旅行：IB CAS 服務學習、華語與文化營、科目考察與 STEAM、學術參訪。每趟行程融入至少 2 項聯合國 SDGs，北中南路線 5–7 天，可客製。">
+<!-- 設計稿：避免與正式站搶索引。正式上線時移除 noindex 並改 canonical -->
 <meta name="robots" content="noindex, nofollow">
-<title>funhtrips.com 網站健檢</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap">
-<style>
-/* Layout: single readable column; site map as an indented tree; issues as a ranked list with severity chips */
-:root {
-  --bg: #f3f6f3;
-  --surface: #ffffff;
-  --fg: #1d2a26;
-  --muted: #5b6b65;
-  --line: #d6e0da;
-  --accent: #2f6b55;      /* forest green */
-  --accent-soft: #e1eee7;
-  --sun: #b7791f;         /* Alishan tea-field amber */
-  --sun-soft: #f7ecd9;
-  --high: #b4473a;
-  --high-soft: #f6e2de;
-  --ok: #2f6b55;
-  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Noto Sans TC", "PingFang TC", sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #121a17; --surface: #1a2420; --fg: #e4ece8; --muted: #9aaba4; --line: #2c3a35;
-    --accent: #7cc3a5; --accent-soft: #1f3a2f; --sun: #e0b062; --sun-soft: #3a2e1b;
-    --high: #ee8a7c; --high-soft: #3d2420; --ok: #7cc3a5; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #121a17; --surface: #1a2420; --fg: #e4ece8; --muted: #9aaba4; --line: #2c3a35;
-  --accent: #7cc3a5; --accent-soft: #1f3a2f; --sun: #e0b062; --sun-soft: #3a2e1b;
-  --high: #ee8a7c; --high-soft: #3d2420; --ok: #7cc3a5; color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body {
-  background: var(--bg); color: var(--fg);
-  font-family: var(--font-body); font-size: 16px; line-height: 1.75;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 0 4rem;
-}
-.wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 3.25rem; }
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.3; text-wrap: balance; margin: 0; }
-h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
-h2 { font-size: 1.45rem; }
-h3 { font-size: 1.05rem; }
-p { margin: 0; }
-a { color: var(--accent); }
-.eyebrow { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
-section { display: flex; flex-direction: column; gap: 1.1rem; }
-.section-head { display: flex; flex-direction: column; gap: .35rem; }
-.lede { color: var(--muted); }
-
-/* Header */
-header { padding-top: 3rem; display: flex; flex-direction: column; gap: 1rem; }
-.meta { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; color: var(--muted); font-size: .9rem; }
-.verdict {
-  background: var(--accent-soft); border-radius: 14px; padding: 1.25rem 1.4rem;
-  display: flex; flex-direction: column; gap: .6rem;
-}
-.verdict strong { color: var(--accent); }
-.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: .4rem; }
-.three div { background: var(--surface); border-radius: 10px; padding: .75rem .9rem; font-size: .92rem; line-height: 1.55; }
-.three b { display: block; font-family: var(--font-display); color: var(--high); font-size: .8rem; letter-spacing: .06em; }
-@media (max-width: 620px) { .three { grid-template-columns: 1fr; } }
-
-/* Site tree */
-.tree { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.3rem; overflow-x: auto; }
-.tree ul { list-style: none; margin: 0; padding: 0; }
-.tree > ul > li > ul { margin-left: .4rem; border-left: 2px solid var(--line); padding-left: 1.1rem; margin-top: .5rem; display: flex; flex-direction: column; gap: .7rem; }
-.node-name { font-weight: 700; }
-.node-url { font-family: ui-monospace, Menlo, monospace; font-size: .8rem; color: var(--muted); margin-left: .4rem; }
-.node-note { display: block; color: var(--muted); font-size: .9rem; line-height: 1.55; }
-.platform { font-size: .9rem; color: var(--muted); }
-.gaps { display: flex; flex-wrap: wrap; gap: .5rem; }
-.chip { display: inline-block; font-size: .82rem; padding: .2rem .7rem; border-radius: 999px; background: var(--sun-soft); color: var(--sun); font-weight: 500; }
-
-/* Strengths */
-.checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .65rem; }
-.checks li { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: .5rem; }
-.checks li::before { content: "✓"; color: var(--ok); font-weight: 700; }
-
-/* Issues */
-.issues { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
-.issue { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.3rem; display: flex; flex-direction: column; gap: .55rem; }
-.issue-top { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; }
-.rank { font-family: var(--font-display); font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
-.sev { font-size: .75rem; font-weight: 700; padding: .12rem .6rem; border-radius: 999px; letter-spacing: .04em; }
-.sev.high { background: var(--high-soft); color: var(--high); }
-.sev.mid { background: var(--sun-soft); color: var(--sun); }
-.issue ul { margin: 0; padding-left: 1.2rem; }
-.issue p, .issue li { color: var(--fg); }
-code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; background: var(--accent-soft); padding: .05rem .35rem; border-radius: 4px; }
-
-/* Table */
-.table-box { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
-table { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 520px; }
-th, td { text-align: left; padding: .7rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { font-size: .78rem; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
-tr:last-child td { border-bottom: 0; }
-td.now { color: var(--high); }
-td.fix { color: var(--ok); font-weight: 500; }
-.note { font-size: .92rem; color: var(--muted); }
-
-/* Recommendations */
-.recs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
-.rec { border-top: 3px solid var(--accent); background: var(--surface); border-radius: 0 0 12px 12px; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: .4rem; }
-.rec p { font-size: .94rem; color: var(--muted); line-height: 1.65; }
-.rec.wide { grid-column: 1 / -1; }
-@media (max-width: 620px) { .recs { grid-template-columns: 1fr; } }
-.audiences { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .2rem; }
-.audiences span { font-size: .8rem; background: var(--accent-soft); color: var(--accent); padding: .15rem .6rem; border-radius: 999px; }
-
-footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
-</style>
+<link rel="canonical" href="https://www.funhtrips.com/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://www.funhtrips.com/">
+<link rel="alternate" hreflang="en" href="https://www.funhtrips.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.funhtrips.com/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="知行學旅 Fun Horizon Educational Trips">
+<meta property="og:title" content="知行學旅｜台灣 IB CAS 服務學習與教育旅行規劃">
+<meta property="og:description" content="知行學旅為國際學校與一般學校規劃台灣教育旅行：IB CAS 服務學習、華語與文化營、科目考察與 STEAM、學術參訪。每趟行程融入至少 2 項聯合國 SDGs，北中南路線 5–7 天，可客製。">
+<meta property="og:image" content="https://www.funhtrips.com/assets/img/hero-nanhu-sunrise.jpg">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="design/assets/img/logo-zhixing.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["EducationalOrganization","TravelAgency"],"@id":"https://www.funhtrips.com/#org","name":"知行學旅有限公司","alternateName":["Fun Horizon Educational Trips","Fun Horizon Educational Trips Co., Ltd.","知行學旅"],"url":"https://www.funhtrips.com/","logo":"https://www.funhtrips.com/assets/img/logo-zhixing.png","image":"https://www.funhtrips.com/assets/img/hero-nanhu-sunrise.jpg","description":"Taiwan-based educational travel company designing IB CAS & service-learning trips, Chinese language and culture camps, subject/STEAM trips and academic visits — every trip integrates at least 2 UN SDGs.","email":"office@funhorizonedutrips.com","telephone":"+886-911-747-378","taxID":"94214379","address":{"@type":"PostalAddress","streetAddress":"3F, No. 341, Zhongpu 1st St.","addressLocality":"Taoyuan District","addressRegion":"Taoyuan City","postalCode":"330","addressCountry":"TW"},"areaServed":"TW","sameAs":["https://www.linkedin.com/company/99383727"],"knowsAbout":["IB CAS","Service learning","UN SDGs","Educational travel","Chinese language learning","STEAM"]},{"@type":"TouristTrip","name":"IB CAS & Service Learning — Taoyuan (Northern Taiwan)","description":"Coastal ecological conservation, Ocean Hakka culture, Fishing heritage & community development, Recycling to regeneration","touristType":"Students","provider":{"@id":"https://www.funhtrips.com/#org"},"itinerary":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Crafts with recycled plastic wood"},{"@type":"ListItem","position":2,"name":"Ocean Hakka food workshop"},{"@type":"ListItem","position":3,"name":"Coastal animal art creation"},{"@type":"ListItem","position":4,"name":"Canoeing / SUP"},{"@type":"ListItem","position":5,"name":"Bike tour"},{"@type":"ListItem","position":6,"name":"Coastal ecology exploration"},{"@type":"ListItem","position":7,"name":"Century-old fishing stone weir reconstruction"},{"@type":"ListItem","position":8,"name":"Beach cleaning"},{"@type":"ListItem","position":9,"name":"Marine debris recycling & sorting"}]}},{"@type":"TouristTrip","name":"IB CAS & Service Learning — Chiayi & Alishan (Central Taiwan)","description":"Alishan exploration & forest conservation, High-mountain tea farm service, Food & agriculture education, Elderly care","touristType":"Students","provider":{"@id":"https://www.funhtrips.com/#org"},"itinerary":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mountain vegetable cooking workshop"},{"@type":"ListItem","position":2,"name":"Hinoki woodcraft workshop"},{"@type":"ListItem","position":3,"name":"Taiwanese high-mountain tea ceremony"},{"@type":"ListItem","position":4,"name":"Tea picking"},{"@type":"ListItem","position":5,"name":"Hiking in Alishan"},{"@type":"ListItem","position":6,"name":"Alishan Forest Railway adventure"},{"@type":"ListItem","position":7,"name":"Service at a high-mountain tea farm"},{"@type":"ListItem","position":8,"name":"Mountain clean-up"},{"@type":"ListItem","position":9,"name":"Elderly care"}]}},{"@type":"TouristTrip","name":"IB CAS & Service Learning — Kaohsiung & Meinong (Southern Taiwan)","description":"Hakka culture, Elderly care, Community development & language revitalisation, Animal-care life education","touristType":"Students","provider":{"@id":"https://www.funhtrips.com/#org"},"itinerary":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Oil-paper umbrella painting"},{"@type":"ListItem","position":2,"name":"Hakka lei-cha & food workshop"},{"@type":"ListItem","position":3,"name":"Animal life-story creation"},{"@type":"ListItem","position":4,"name":"Biking around Meinong"},{"@type":"ListItem","position":5,"name":"Hiking Shoushan (Chaishan)"},{"@type":"ListItem","position":6,"name":"Kaohsiung Circular Light Rail"},{"@type":"ListItem","position":7,"name":"Cultural exchange & English service at a local school"},{"@type":"ListItem","position":8,"name":"Elderly care"},{"@type":"ListItem","position":9,"name":"Organic farming"},{"@type":"ListItem","position":10,"name":"Service at an animal protection site"}]}}]}</script>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Alegreya+Sans:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design/concepts/03-island-map/style.css">
 </head>
 <body>
-
-<div class="wrap">
-
-  <header>
-    <span class="eyebrow">Website Review · 網站健檢</span>
-    <h1>funhtrips.com 網站內容與架構分析</h1>
-    <div class="meta">
-      <span>知行學旅 Fun Horizon Educational Trips</span>
-      <span>分析日期：2026 年 11 月 27 日</span>
-      <span>範圍：全站 6 頁</span>
-    </div>
-    <div class="verdict">
-      <p><strong>一句話總結：</strong>網站的內容方向正確，也看得出專業（IB CAS、SDGs、北中南 3 條路線）。但它目前比較像「線上名片」，還不是能幫你接案的網站。</p>
-      <div class="three">
-        <div><b>問題 1</b>沒有讓客戶行動的入口</div>
-        <div><b>問題 2</b>行程細節都放在圖片裡</div>
-        <div><b>問題 3</b>Google 幾乎讀不到網站內容</div>
-      </div>
-    </div>
-  </header>
-
-  <section>
-    <div class="section-head">
-      <span class="eyebrow">Site Structure</span>
-      <h2>一、網站架構</h2>
-      <p class="platform">平台：Webnode（拖拉式架站工具）｜共 6 頁｜中英雙語放在同一頁</p>
-    </div>
-    <div class="tree">
-      <ul>
-        <li><span class="node-name">首頁 Home</span><span class="node-url">/</span>
-          <span class="node-note">公司介紹、6 項服務簡介、聯絡資訊</span>
-          <ul>
-            <li><span class="node-name">關於我們 About Us</span><span class="node-url">/about-us/</span>
-              <span class="node-note">我們是誰、願景與使命</span></li>
-            <li><span class="node-name">服務學習 CAS / Service</span><span class="node-url">/servicelearning/</span>
-              <span class="node-note">北：桃園海岸生態｜中：嘉義阿里山｜南：高雄美濃，各 5–7 天</span></li>
-            <li><span class="node-name">語言與文化 Language &amp; Culture</span><span class="node-url">/language-culture/</span>
-              <span class="node-note">華語課程 7–21 天（台北／高雄）、文化體驗</span></li>
-            <li><span class="node-name">科目考察 Subjects &amp; STEAM</span><span class="node-url">/subjects/</span>
-              <span class="node-note">客製學科旅行、PBL 跨學科專題</span></li>
-            <li><span class="node-name">學術參訪 Academic Visit</span><span class="node-url">/academicvisit/</span>
-              <span class="node-note">高等教育與企業交流</span></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <p>首頁列了 6 項服務，選單卻只有 4 個服務頁。<strong>「研習、演講、工作坊 PD」沒有自己的頁面</strong>；「IB CAS」和「服務學習」則合在同一頁。</p>
-    <p class="lede">目前網站缺少的頁面或功能：</p>
-    <div class="gaps">
-      <span class="chip">聯絡表單</span>
-      <span class="chip">過往案例</span>
-      <span class="chip">客戶見證</span>
-      <span class="chip">常見問題 FAQ</span>
-      <span class="chip">部落格</span>
-      <span class="chip">PD 工作坊頁</span>
-      <span class="chip">Facebook／Instagram 連結</span>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <span class="eyebrow">Strengths</span>
-      <h2>二、內容優點</h2>
-    </div>
-    <ul class="checks">
-      <li><span><strong>定位清楚：</strong>「SDGs + 教育旅行」，每趟 CAS 行程至少涵蓋 2 項 SDGs，是很好的差異化賣點。</span></li>
-      <li><span><strong>路線具體：</strong>北中南 3 條 CAS 路線都有主題、地點和天數，好懂。</span></li>
-      <li><span><strong>全站雙語：</strong>中英對照，符合國際學校客群。</span></li>
-      <li><span><strong>團隊可信：</strong>「關於我們」說明創辦團隊有 10 年以上國際學校與 NPO 經驗。</span></li>
-    </ul>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <span class="eyebrow">Issues</span>
-      <h2>三、主要問題</h2>
-      <p class="lede">依對接案的影響大小排序。</p>
-    </div>
-    <ol class="issues">
-      <li class="issue">
-        <div class="issue-top"><span class="rank">1</span><h3>沒有行動入口</h3><span class="sev high">影響最大</span></div>
-        <p>沒有「索取提案」或「預約諮詢」按鈕，也沒有表單。客戶看完只能自己抄 email。國際學校老師很忙，多一個步驟就可能流失。</p>
-      </li>
-      <li class="issue">
-        <div class="issue-top"><span class="rank">2</span><h3>行程細節都在圖片裡</h3><span class="sev high">高</span></div>
-        <p>「行程概覽」和「方案選擇」都是 PNG 圖片（例如 <code>CAS- Taoyuan Program.png</code>），因此：</p>
-        <ul>
-          <li>Google 搜尋不到圖片裡的文字</li>
-          <li>手機上不容易看清楚</li>
-          <li>每次改內容都要重做圖片</li>
-        </ul>
-      </li>
-      <li class="issue">
-        <div class="issue-top"><span class="rank">3</span><h3>SEO 基礎設定幾乎是空的</h3><span class="sev high">高</span></div>
-        <ul>
-          <li>首頁標題是「funhtrips.com」，描述只有「Home」。有人搜尋 “Taiwan CAS trip” 或「台灣遊學 國際學校」時，Google 不知道這個網站和這些主題有關。</li>
-          <li>全站約 30 張圖片，全部沒有 alt 替代文字。</li>
-          <li>沒有結構化資料（給 Google 看的公司資訊），中英文也沒有分成兩個語言版本。</li>
-        </ul>
-      </li>
-      <li class="issue">
-        <div class="issue-top"><span class="rank">4</span><h3>缺少信任證明</h3><span class="sev mid">中</span></div>
-        <p>看不到合作學校、行程照片故事、學生或老師的回饋，也沒有成果數字（例如「已服務 X 所學校、X 位學生」）。對國際學校採購來說，這常是決定的關鍵。</p>
-      </li>
-      <li class="issue">
-        <div class="issue-top"><span class="rank">5</span><h3>品牌細節不一致</h3><span class="sev mid">中</span></div>
-        <ul>
-          <li>網站網域是 funhtrips.com，email 卻是另一個網域，容易讓人困惑。</li>
-          <li>頁尾有 Webnode 廣告標章，看起來不夠專業。</li>
-        </ul>
-      </li>
-    </ol>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <span class="eyebrow">Quick Fixes</span>
-      <h2>四、文字錯誤與細節</h2>
-      <p class="lede">這些現在就能在 Webnode 修改，不用等新網站。</p>
-    </div>
-    <div class="table-box">
-      <table>
-        <thead><tr><th>位置</th><th>現在</th><th>建議</th></tr></thead>
-        <tbody>
-          <tr><td>服務學習頁</td><td class="now">Meninong District</td><td class="fix">Meinong District</td></tr>
-          <tr><td>服務學習頁</td><td class="now">Middle Taiwan</td><td class="fix">Central Taiwan</td></tr>
-          <tr><td>首頁</td><td class="now">such us subject criteria</td><td class="fix">such as subject criteria</td></tr>
-          <tr><td>首頁</td><td class="now">亦提供亦提供</td><td class="fix">刪掉重複的字</td></tr>
-          <tr><td>首頁</td><td class="now">is not IB school</td><td class="fix">is not an IB school</td></tr>
-          <tr><td>首頁</td><td class="now">+886-0911-747378</td><td class="fix">+886-911-747-378（國際格式不寫 0）</td></tr>
-          <tr><td>頁尾</td><td class="now">© 2024</td><td class="fix">更新為今年</td></tr>
-          <tr><td>首頁</td><td class="now">LinkedIn 顯示整串網址</td><td class="fix">改成圖示或「LinkedIn」文字</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <span class="eyebrow">Next Website</span>
-      <h2>五、新網站建議方向</h2>
-    </div>
-    <div class="recs">
-      <div class="rec wide">
-        <h3>依客戶類型分入口</h3>
-        <p>讓訪客 3 秒內找到「我的那一頁」。</p>
-        <div class="audiences">
-          <span>國際學校（IB CAS）</span><span>一般學校（服務學習、學科）</span><span>大學與企業（學術參訪）</span><span>華語營</span>
+<a class="skip" href="#main">跳到主要內容</a>
+<p class="concept-tag"><a href="design/index.html">← 設計概念總覽</a><span>概念 03・島嶼路線圖 Island Map</span></p>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#top"><img src="design/assets/img/logo-zhixing.png" alt="知行學旅標誌" width="36" height="36"><span><b>知行學旅</b><span class="en" lang="en">Fun Horizon Educational Trips</span></span></a>
+    <nav aria-label="主選單"><ul><li><a href="#map">路線圖</a></li><li><a href="#region-north">北</a></li><li><a href="#region-central">中</a></li><li><a href="#region-south">南</a></li><li><a href="#region-east">東</a></li><li><a href="#subjects">科目</a></li><li><a href="#language">華語</a></li><li><a href="#academic">學術</a></li><li><a href="#about">關於</a></li></ul></nav>
+    <a class="btn btn-head" href="#plan">索取客製提案</a>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title"><span class="h1-zh">知行學旅</span><span class="h1-en" lang="en">Fun Horizon Educational Trips</span></h1>
+        <p class="hero-tag">教育旅行｜服務學習｜學術交流</p>
+        <p class="hero-lead">把課程帶到台灣的真實現場：桃園海岸、阿里山茶園、美濃客家庄。我們為國際學校與一般學校規劃 IB CAS、服務學習、華語營與學科考察，每趟融入至少 2 項 SDGs。</p>
+        <p class="hero-lead en-p" lang="en">IB CAS, service learning, language and subject trips across Taiwan — every route covers at least 2 UN SDGs.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#plan">索取客製提案 <span lang="en">Request a proposal</span></a>
+          <a class="btn btn-ghost" href="#region-north">從北台灣開始看</a>
         </div>
       </div>
-      <div class="rec">
-        <h3>每條行程一頁，用文字寫</h3>
-        <p>寫清楚天數、地點、對應的 SDGs、學習成果和範例日程。</p>
+      <div class="hero-map" id="map">
+        <svg class="chart" viewBox="-40 -10 460 700" role="img" aria-labelledby="map-title map-desc">
+    <title id="map-title">知行學旅台灣路線圖</title>
+    <desc id="map-desc">台灣本島簡化地圖。珊瑚色標記為 IB CAS 三條路線：桃園、嘉義阿里山、高雄美濃；青色圓點為科目考察目的地：東北海岸、新竹、花蓮、日月潭、台南、屏東；方形為華語與學術參訪據點：台北、高雄。</desc>
+    <defs>
+      <symbol id="tw-island" viewBox="-40 -10 460 700"><path d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z"/></symbol>
+    </defs>
+    <g class="grat"><line x1="-40" x2="420" y1="76" y2="76"/><text x="-36" y="71">25°N</text><line x1="-40" x2="420" y1="266" y2="266"/><text x="-36" y="261">24°N</text><line x1="-40" x2="420" y1="456" y2="456"/><text x="-36" y="451">23°N</text><line x1="-40" x2="420" y1="646" y2="646"/><text x="-36" y="641">22°N</text><line y1="-10" y2="690" x1="17" x2="17"/><text x="21" y="4">120°E</text><line y1="-10" y2="690" x1="187" x2="187"/><text x="191" y="4">121°E</text><line y1="-10" y2="690" x1="357" x2="357"/><text x="361" y="4">122°E</text></g>
+    <g class="depth"><path d="M284.5 -3.5 C294.9 -2.4 309.5 20.1 320.9 27.6 C332.3 35.1 345.2 36.8 353.0 41.5 C360.9 46.1 370.7 47.7 368.0 55.4 C365.3 63.0 340.9 73.6 337.0 87.5 C333.0 101.4 348.4 118.5 344.5 138.8 C340.5 159.2 321.1 189.1 313.4 209.5 C305.8 229.8 304.5 235.3 298.4 260.8 C292.4 286.3 284.5 333.6 277.0 362.5 C269.6 391.4 264.0 408.8 253.5 434.2 C243.0 459.5 228.2 487.5 213.9 514.4 C199.6 541.3 176.8 566.8 167.9 595.7 C159.0 624.6 165.9 673.5 160.4 687.8 C154.9 702.0 139.5 689.7 134.7 681.3 C129.9 672.9 135.1 651.9 131.5 637.5 C128.0 623.0 121.0 605.5 113.3 594.7 C105.7 583.8 95.5 581.1 85.5 572.2 C75.5 563.3 61.8 552.4 53.4 541.2 C45.0 529.9 40.4 517.6 35.2 504.8 C30.0 491.9 23.6 484.4 22.4 464.1 C21.1 443.8 26.1 406.5 27.7 382.8 C29.3 359.1 26.8 342.1 32.0 321.8 C37.2 301.5 47.7 281.1 58.8 260.8 C69.8 240.5 85.7 219.4 98.3 199.8 C111.0 180.2 122.6 160.8 134.7 143.1 C146.9 125.5 160.1 109.9 171.1 93.9 C182.2 77.8 186.4 58.9 201.1 46.8 C215.7 34.7 244.9 29.5 258.9 21.1 C272.8 12.8 274.2 -4.5 284.5 -3.5Z"/><path d="M290.8 -32.4 C302.1 -31.2 317.9 -6.8 330.3 1.3 C342.7 9.4 356.6 11.3 365.1 16.4 C373.6 21.4 384.2 23.1 381.3 31.4 C378.4 39.8 351.9 51.2 347.7 66.2 C343.4 81.3 360.1 99.9 355.8 121.9 C351.5 144.0 330.5 176.4 322.2 198.5 C313.8 220.5 312.5 226.5 305.9 254.2 C299.3 281.8 290.8 333.0 282.7 364.4 C274.6 395.7 268.6 414.6 257.2 442.1 C245.8 469.5 229.7 499.9 214.3 529.1 C198.8 558.3 174.1 585.9 164.4 617.2 C154.7 648.6 162.3 701.5 156.3 717.0 C150.3 732.5 133.7 719.1 128.4 710.0 C123.2 701.0 128.8 678.1 125.0 662.5 C121.1 646.8 113.6 627.9 105.2 616.1 C96.9 604.3 85.9 601.4 75.1 591.7 C64.3 582.1 49.4 570.3 40.3 558.1 C31.2 545.9 26.2 532.6 20.6 518.6 C15.0 504.7 8.0 496.6 6.6 474.6 C5.3 452.5 10.7 412.1 12.4 386.4 C14.2 360.7 11.5 342.3 17.1 320.3 C22.7 298.2 34.1 276.2 46.1 254.2 C58.1 232.1 75.3 209.3 89.0 188.0 C102.7 166.8 115.3 145.7 128.4 126.6 C141.6 107.4 155.9 90.6 167.9 73.2 C179.9 55.8 184.5 35.3 200.4 22.2 C216.2 9.0 247.9 3.4 263.0 -5.7 C278.1 -14.8 279.6 -33.5 290.8 -32.4Z"/><path d="M298.2 -77.3 C310.8 -76.0 328.5 -48.7 342.4 -39.6 C356.3 -30.5 371.9 -28.3 381.4 -22.7 C390.9 -17.1 402.9 -15.1 399.6 -5.8 C396.4 3.5 366.7 16.3 361.9 33.2 C357.1 50.1 375.8 70.9 371.0 95.6 C366.2 120.3 342.6 156.7 333.3 181.4 C324.0 206.1 322.5 212.8 315.1 243.8 C307.7 274.8 298.2 332.2 289.1 367.3 C280.0 402.4 273.3 423.6 260.5 454.4 C247.7 485.2 229.7 519.2 212.4 551.9 C195.1 584.6 167.3 615.6 156.5 650.7 C145.7 685.8 154.1 745.2 147.4 762.5 C140.7 779.8 122.0 764.9 116.2 754.7 C110.4 744.5 116.6 719.0 112.3 701.4 C108.0 683.9 99.5 662.6 90.2 649.4 C80.9 636.2 68.5 632.9 56.4 622.1 C44.3 611.3 27.6 598.0 17.4 584.4 C7.2 570.8 1.6 555.8 -4.7 540.2 C-11.0 524.6 -18.8 515.5 -20.3 490.8 C-21.8 466.1 -15.8 420.8 -13.8 392.0 C-11.9 363.2 -14.9 342.6 -8.6 317.9 C-2.3 293.2 10.5 268.5 23.9 243.8 C37.3 219.1 56.6 193.5 72.0 169.7 C87.4 145.9 101.5 122.2 116.2 100.8 C130.9 79.3 147.0 60.5 160.4 41.0 C173.8 21.5 179.0 -1.5 196.8 -16.2 C214.6 -30.9 250.1 -37.2 267.0 -47.4 C283.9 -57.6 285.6 -78.6 298.2 -77.3Z"/></g>
+    <path class="island" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z"/>
+    <g class="relief"><path d="M264.9 88.5 C272.5 89.3 283.1 105.7 291.4 111.1 C299.8 116.6 309.1 117.9 314.8 121.3 C320.6 124.7 327.7 125.8 325.8 131.4 C323.8 137.0 306.0 144.7 303.1 154.8 C300.3 165.0 311.5 177.4 308.6 192.3 C305.7 207.1 291.6 228.9 286.0 243.7 C280.4 258.6 279.5 262.6 275.1 281.2 C270.6 299.8 264.9 334.2 259.5 355.3 C254.0 376.3 250.0 389.1 242.3 407.5 C234.6 426.0 223.8 446.4 213.4 466.0 C203.0 485.7 186.4 504.3 179.9 525.3 C173.4 546.4 178.5 582.0 174.4 592.4 C170.4 602.8 159.2 593.8 155.7 587.7 C152.2 581.6 156.0 566.3 153.4 555.7 C150.8 545.2 145.7 532.5 140.1 524.5 C134.5 516.6 127.1 514.7 119.8 508.2 C112.6 501.7 102.5 493.7 96.4 485.5 C90.3 477.3 87.0 468.4 83.2 459.0 C79.4 449.7 74.7 444.2 73.8 429.4 C72.9 414.6 76.5 387.4 77.7 370.1 C78.9 352.8 77.1 340.5 80.8 325.6 C84.6 310.8 92.3 296.0 100.3 281.2 C108.4 266.4 120.0 251.0 129.2 236.7 C138.4 222.4 146.9 208.3 155.7 195.4 C164.6 182.5 174.2 171.2 182.2 159.5 C190.3 147.8 193.4 134.0 204.1 125.2 C214.7 116.3 236.1 112.6 246.2 106.5 C256.3 100.3 257.4 87.7 264.9 88.5Z"/><path d="M253.0 155.8 C258.5 156.4 266.1 168.2 272.1 172.1 C278.1 176.0 284.8 176.9 288.9 179.4 C293.0 181.8 298.1 182.6 296.7 186.6 C295.3 190.7 282.5 196.2 280.5 203.4 C278.4 210.7 286.5 219.7 284.4 230.3 C282.3 241.0 272.2 256.6 268.2 267.3 C264.1 277.9 263.5 280.8 260.3 294.2 C257.1 307.5 253.0 332.2 249.1 347.4 C245.2 362.5 242.3 371.6 236.8 384.9 C231.3 398.1 223.5 412.8 216.1 426.9 C208.6 441.0 196.7 454.3 192.0 469.4 C187.3 484.6 191.0 510.1 188.1 517.6 C185.2 525.1 177.2 518.6 174.6 514.2 C172.1 509.9 174.8 498.8 173.0 491.3 C171.1 483.7 167.5 474.6 163.4 468.9 C159.4 463.2 154.1 461.8 148.9 457.1 C143.7 452.5 136.5 446.8 132.1 440.9 C127.7 435.0 125.3 428.6 122.6 421.8 C119.9 415.1 116.5 411.2 115.8 400.6 C115.2 389.9 117.8 370.4 118.6 358.0 C119.5 345.6 118.2 336.7 120.9 326.1 C123.6 315.4 129.1 304.8 134.9 294.2 C140.7 283.5 149.0 272.5 155.6 262.2 C162.2 252.0 168.3 241.8 174.6 232.6 C181.0 223.3 187.9 215.2 193.7 206.8 C199.5 198.4 201.7 188.5 209.4 182.2 C217.0 175.8 232.3 173.1 239.6 168.7 C246.9 164.3 247.6 155.3 253.0 155.8Z"/><path d="M237.4 224.4 C240.9 224.8 245.8 232.4 249.6 234.9 C253.5 237.4 257.8 238.0 260.4 239.6 C263.1 241.1 266.4 241.7 265.5 244.2 C264.6 246.8 256.4 250.4 255.0 255.0 C253.7 259.7 258.9 265.5 257.6 272.3 C256.2 279.2 249.7 289.2 247.1 296.1 C244.5 302.9 244.1 304.8 242.1 313.4 C240.0 321.9 237.4 337.8 234.9 347.6 C232.4 357.3 230.5 363.2 227.0 371.7 C223.4 380.2 218.4 389.6 213.6 398.7 C208.8 407.7 201.2 416.3 198.2 426.0 C195.2 435.8 197.5 452.2 195.6 457.0 C193.8 461.8 188.6 457.7 187.0 454.8 C185.4 452.0 187.1 444.9 185.9 440.1 C184.7 435.2 182.4 429.3 179.8 425.7 C177.2 422.0 173.8 421.1 170.4 418.1 C167.1 415.1 162.5 411.5 159.6 407.7 C156.8 403.9 155.3 399.8 153.5 395.4 C151.8 391.1 149.6 388.6 149.2 381.8 C148.8 374.9 150.5 362.4 151.0 354.4 C151.5 346.4 150.7 340.7 152.4 333.9 C154.2 327.0 157.7 320.2 161.4 313.4 C165.2 306.5 170.5 299.4 174.8 292.8 C179.0 286.2 182.9 279.7 187.0 273.8 C191.1 267.8 195.5 262.6 199.2 257.2 C203.0 251.8 204.4 245.4 209.3 241.4 C214.2 237.3 224.1 235.5 228.8 232.7 C233.4 229.9 233.9 224.1 237.4 224.4Z"/><path d="M217.6 295.4 C219.2 295.6 221.5 299.1 223.4 300.3 C225.2 301.5 227.2 301.8 228.5 302.5 C229.7 303.3 231.3 303.5 230.8 304.7 C230.4 306.0 226.5 307.6 225.9 309.8 C225.3 312.0 227.7 314.8 227.1 318.0 C226.5 321.2 223.4 326.0 222.2 329.2 C221.0 332.5 220.8 333.3 219.8 337.4 C218.8 341.4 217.6 348.9 216.4 353.5 C215.2 358.1 214.3 360.9 212.7 364.9 C211.0 368.9 208.6 373.4 206.4 377.7 C204.1 381.9 200.5 386.0 199.1 390.6 C197.6 395.2 198.7 402.9 197.9 405.2 C197.0 407.5 194.5 405.5 193.8 404.2 C193.0 402.9 193.8 399.5 193.3 397.2 C192.7 394.9 191.6 392.1 190.4 390.4 C189.2 388.7 187.5 388.3 186.0 386.9 C184.4 385.4 182.2 383.7 180.9 381.9 C179.5 380.1 178.8 378.2 178.0 376.1 C177.1 374.1 176.1 372.9 175.9 369.7 C175.7 366.4 176.5 360.5 176.8 356.8 C177.0 353.0 176.6 350.3 177.5 347.1 C178.3 343.8 180.0 340.6 181.7 337.4 C183.5 334.1 186.0 330.8 188.0 327.7 C190.0 324.6 191.9 321.5 193.8 318.7 C195.7 315.9 197.8 313.4 199.6 310.9 C201.3 308.3 202.0 305.3 204.3 303.4 C206.6 301.5 211.3 300.6 213.5 299.3 C215.7 298.0 215.9 295.2 217.6 295.4Z"/></g>
+    <ellipse class="islet" cx="270" cy="521" rx="4" ry="5"/>
+    <ellipse class="islet" cx="280" cy="636" rx="5" ry="6"/>
+    <path class="route-line" d="M204 76 C 120 160, 200 260, 153 359 S 70 420, 107 475" pathLength="100"/>
+    <g class="compass" transform="translate(370 610)"><circle r="22"/><path d="M0-30 6 0 0 6-6 0Z"/><text y="-36" text-anchor="middle">N</text></g>
+    <g class="scale" transform="translate(-24 668)"><path d="M0 0h85M0-5v5M42.5-3v3M85-5v5"/><text x="0" y="14">0</text><text x="85" y="14" text-anchor="middle">50 km</text></g>
+    <g class="pins"><a class="pin pin-cas" href="#route-taoyuan" data-pin="taoyuan" aria-controls="panel-taoyuan">
+      <title>桃園 Taoyuan</title><circle class="pin-halo" cx="204" cy="76" r="15"/><path class="pin-drop" d="M204 77c-6-7-9-11-9-15a9 9 0 0 1 18 0c0 4-3 8-9 15Z" transform="translate(0 -2)"/><circle class="pin-eye" cx="204" cy="60" r="3.2"/>
+      <text class="pin-label" x="193" y="69" text-anchor="end">桃園</text>
+    </a><a class="pin pin-cas" href="#route-chiayi" data-pin="chiayi" aria-controls="panel-chiayi">
+      <title>嘉義・阿里山 Alishan</title><circle class="pin-halo" cx="153" cy="359" r="15"/><path class="pin-drop" d="M153 360c-6-7-9-11-9-15a9 9 0 0 1 18 0c0 4-3 8-9 15Z" transform="translate(0 -2)"/><circle class="pin-eye" cx="153" cy="343" r="3.2"/>
+      <text class="pin-label" x="142" y="352" text-anchor="end">嘉義・阿里山</text>
+    </a><a class="pin pin-cas" href="#route-kaohsiung" data-pin="kaohsiung" aria-controls="panel-kaohsiung">
+      <title>高雄・美濃 Meinong</title><circle class="pin-halo" cx="107" cy="475" r="15"/><path class="pin-drop" d="M107 476c-6-7-9-11-9-15a9 9 0 0 1 18 0c0 4-3 8-9 15Z" transform="translate(0 -2)"/><circle class="pin-eye" cx="107" cy="459" r="3.2"/>
+      <text class="pin-label" x="118" y="468" text-anchor="start">高雄・美濃</text>
+    </a><a class="pin pin-sub" href="#trip-1" data-pin="nec" aria-controls="panel-nec">
+      <title>東北海岸 NE Coast</title><circle class="pin-halo" cx="331" cy="57" r="12"/><circle class="pin-dot" cx="331" cy="57" r="5.5"/>
+      <text class="pin-label" x="342" y="62" text-anchor="start">東北海岸</text>
+    </a><a class="pin pin-sub" href="#trip-3" data-pin="hsinchu" aria-controls="panel-hsinchu">
+      <title>新竹 Hsinchu</title><circle class="pin-halo" cx="187" cy="118" r="12"/><circle class="pin-dot" cx="187" cy="118" r="5.5"/>
+      <text class="pin-label" x="176" y="123" text-anchor="end">新竹</text>
+    </a><a class="pin pin-sub" href="#trip-2" data-pin="hualien" aria-controls="panel-hualien">
+      <title>花蓮 Hualien</title><circle class="pin-halo" cx="286" cy="270" r="12"/><circle class="pin-dot" cx="286" cy="270" r="5.5"/>
+      <text class="pin-label" x="297" y="275" text-anchor="start">花蓮</text>
+    </a><a class="pin pin-sub" href="#trip-6" data-pin="sml" aria-controls="panel-sml">
+      <title>日月潭 Sun Moon Lake</title><circle class="pin-halo" cx="172" cy="293" r="12"/><circle class="pin-dot" cx="172" cy="293" r="5.5"/>
+      <text class="pin-label" x="183" y="298" text-anchor="start">日月潭</text>
+    </a><a class="pin pin-sub" href="#trip-6" data-pin="tainan" aria-controls="panel-tainan">
+      <title>台南 Tainan</title><circle class="pin-halo" cx="51" cy="456" r="12"/><circle class="pin-dot" cx="51" cy="456" r="5.5"/>
+      <text class="pin-label" x="40" y="461" text-anchor="end">台南</text>
+    </a><a class="pin pin-sub" href="#trip-7" data-pin="pingtung" aria-controls="panel-pingtung">
+      <title>屏東 Pingtung</title><circle class="pin-halo" cx="100" cy="519" r="12"/><circle class="pin-dot" cx="100" cy="519" r="5.5"/>
+      <text class="pin-label" x="111" y="524" text-anchor="start">屏東</text>
+    </a><a class="pin pin-city" href="#language" data-pin="taipei" aria-controls="panel-taipei">
+      <title>台北 Taipei</title><circle class="pin-halo" cx="275" cy="68" r="12"/><rect class="pin-sq" x="270" y="63" width="10" height="10"/>
+      <text class="pin-label" x="279" y="88" text-anchor="start">台北</text>
+    </a><a class="pin pin-city" href="#language" data-pin="khcity" aria-controls="panel-khcity">
+      <title>高雄 Kaohsiung</title><circle class="pin-halo" cx="68" cy="526" r="12"/><rect class="pin-sq" x="63" y="521" width="10" height="10"/>
+      <text class="pin-label" x="57" y="531" text-anchor="end">高雄</text>
+    </a></g>
+  </svg>
       </div>
-      <div class="rec">
-        <h3>每頁都有「索取客製提案」</h3>
-        <p>按鈕加簡短表單：學校、人數、年級、預計月份、學習目標。</p>
-      </div>
-      <div class="rec">
-        <h3>新增案例見證頁與 PD 頁</h3>
-        <p>用照片、引言和數字說故事，補上工作坊與講師介紹。</p>
-      </div>
-      <div class="rec">
-        <h3>評估更換平台</h3>
-        <p>Framer、Wix Studio 或 WordPress 在多語系和 SEO 上比 Webnode 有彈性。架構定了再一起評估。</p>
+      <div class="hero-panel" aria-live="polite">
+        <article class="panel panel-intro is-active" id="panel-intro" data-panel="intro">
+    <p class="panel-kind">圖例 Legend</p>
+    <h3>選一個地點，看看那裡的行程 <span class="en" lang="en">Pick a place on the map</span></h3>
+    <ul class="legend">
+      <li><span class="key key-cas"></span>IB CAS 服務學習路線（北・中・南）</li>
+      <li><span class="key key-sub"></span>科目考察・STEAM 目的地</li>
+      <li><span class="key key-city"></span>華語營與學術參訪據點</li>
+    </ul>
+    <p class="legend-jump">或直接看：<a href="#region-north">北台灣</a><a href="#region-central">中台灣</a><a href="#region-south">南台灣</a><a href="#region-east">東台灣</a></p>
+  </article>
+        <article class="panel panel-cas" id="panel-taoyuan" data-panel="taoyuan">
+        <p class="panel-kind"><span class="key key-cas"></span>IB CAS 路線｜北台灣</p>
+        <h3>桃園 <span class="en" lang="en">Taoyuan</span></h3>
+        <p class="panel-meta"><b>5–7</b> 天 days</p>
+        <ul class="themes"><li>海岸生態復育</li><li>海洋客家文化</li><li>傳統漁業文化與社區營造</li><li>循環再生永續產業</li></ul>
+        <ul class="sdgs" aria-label="聯合國永續發展目標 SDGs"><li class="sdg" style="--sdg:#FD9D24"><b>SDG 11</b><span>永續城鄉</span><span class="en" lang="en">Sustainable Cities and Communities</span></li><li class="sdg" style="--sdg:#BF8B2E"><b>SDG 12</b><span>責任消費與生產</span><span class="en" lang="en">Responsible Consumption and Production</span></li><li class="sdg" style="--sdg:#3F7E44"><b>SDG 13</b><span>氣候行動</span><span class="en" lang="en">Climate Action</span></li><li class="sdg" style="--sdg:#0A97D9"><b>SDG 14</b><span>保育海洋生態</span><span class="en" lang="en">Life Below Water</span></li></ul>
+        <p class="panel-near">同區科目考察：<a href="#trip-4">科學與地理考察</a>、<a href="#trip-5">STEAM 考察</a></p>
+        <div class="panel-actions"><a class="btn btn-ghost" href="#route-taoyuan">看完整 C／A／S 行程</a><a class="btn btn-ask" href="#plan" data-prefill-type="cas" data-prefill-region="north">以這條路線索取提案</a></div>
+      </article><article class="panel panel-cas" id="panel-chiayi" data-panel="chiayi">
+        <p class="panel-kind"><span class="key key-cas"></span>IB CAS 路線｜中台灣</p>
+        <h3>嘉義・阿里山 <span class="en" lang="en">Chiayi &amp; Alishan</span></h3>
+        <p class="panel-meta"><b>5–7</b> 天 days</p>
+        <ul class="themes"><li>阿里山探索與森林保育</li><li>高山茶園服務</li><li>食農教育</li><li>高齡關懷</li></ul>
+        <ul class="sdgs" aria-label="聯合國永續發展目標 SDGs"><li class="sdg" style="--sdg:#4C9F38"><b>SDG 3</b><span>良好健康與福祉</span><span class="en" lang="en">Good Health and Well-being</span></li><li class="sdg" style="--sdg:#BF8B2E"><b>SDG 12</b><span>責任消費與生產</span><span class="en" lang="en">Responsible Consumption and Production</span></li><li class="sdg" style="--sdg:#3F7E44"><b>SDG 13</b><span>氣候行動</span><span class="en" lang="en">Climate Action</span></li><li class="sdg" style="--sdg:#56C02B"><b>SDG 15</b><span>保育陸域生態</span><span class="en" lang="en">Life on Land</span></li></ul>
+        
+        <div class="panel-actions"><a class="btn btn-ghost" href="#route-chiayi">看完整 C／A／S 行程</a><a class="btn btn-ask" href="#plan" data-prefill-type="cas" data-prefill-region="central">以這條路線索取提案</a></div>
+      </article><article class="panel panel-cas" id="panel-kaohsiung" data-panel="kaohsiung">
+        <p class="panel-kind"><span class="key key-cas"></span>IB CAS 路線｜南台灣</p>
+        <h3>高雄・美濃 <span class="en" lang="en">Kaohsiung &amp; Meinong</span></h3>
+        <p class="panel-meta"><b>5–7</b> 天 days</p>
+        <ul class="themes"><li>客家文化體驗</li><li>高齡關懷</li><li>社區營造與語言復振</li><li>動物生命教育</li></ul>
+        <ul class="sdgs" aria-label="聯合國永續發展目標 SDGs"><li class="sdg" style="--sdg:#4C9F38"><b>SDG 3</b><span>良好健康與福祉</span><span class="en" lang="en">Good Health and Well-being</span></li><li class="sdg" style="--sdg:#FD9D24"><b>SDG 11</b><span>永續城鄉</span><span class="en" lang="en">Sustainable Cities and Communities</span></li><li class="sdg" style="--sdg:#BF8B2E"><b>SDG 12</b><span>責任消費與生產</span><span class="en" lang="en">Responsible Consumption and Production</span></li><li class="sdg" style="--sdg:#56C02B"><b>SDG 15</b><span>保育陸域生態</span><span class="en" lang="en">Life on Land</span></li></ul>
+        
+        <div class="panel-actions"><a class="btn btn-ghost" href="#route-kaohsiung">看完整 C／A／S 行程</a><a class="btn btn-ask" href="#plan" data-prefill-type="cas" data-prefill-region="south">以這條路線索取提案</a></div>
+      </article><article class="panel panel-sub" id="panel-nec" data-panel="nec">
+      <p class="panel-kind"><span class="key key-sub"></span>科目考察目的地</p>
+      <h3>東北海岸 <span class="en" lang="en">NE Coast</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-1">北海岸文化與地理考查</a> <span class="en" lang="en">Culture &amp; Geography of the Northeast Coast</span><small>地理、歷史｜5–7 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="north">以這裡索取提案</a></div>
+    </article><article class="panel panel-sub" id="panel-hsinchu" data-panel="hsinchu">
+      <p class="panel-kind"><span class="key key-sub"></span>科目考察目的地</p>
+      <h3>新竹 <span class="en" lang="en">Hsinchu</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-3">北台灣科技與商業考察</a> <span class="en" lang="en">Technology &amp; Business in Northern Taiwan</span><small>科學、商業｜5–7 天</small></li><li><a href="#trip-5">STEAM 考察</a> <span class="en" lang="en">STEAM Trip</span><small>STEAM｜5–7 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="north">以這裡索取提案</a></div>
+    </article><article class="panel panel-sub" id="panel-hualien" data-panel="hualien">
+      <p class="panel-kind"><span class="key key-sub"></span>科目考察目的地</p>
+      <h3>花蓮 <span class="en" lang="en">Hualien</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-2">花蓮地理考查</a> <span class="en" lang="en">Geography Trip to Hualien</span><small>地理、歷史｜5–7 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="east">以這裡索取提案</a></div>
+    </article><article class="panel panel-sub" id="panel-sml" data-panel="sml">
+      <p class="panel-kind"><span class="key key-sub"></span>科目考察目的地</p>
+      <h3>日月潭 <span class="en" lang="en">Sun Moon Lake</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-6">台灣中南部人文考察</a> <span class="en" lang="en">Culture &amp; History of Central-Southern Taiwan</span><small>地理、歷史｜5–7 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="central">以這裡索取提案</a></div>
+    </article><article class="panel panel-sub" id="panel-tainan" data-panel="tainan">
+      <p class="panel-kind"><span class="key key-sub"></span>科目考察目的地</p>
+      <h3>台南 <span class="en" lang="en">Tainan</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-6">台灣中南部人文考察</a> <span class="en" lang="en">Culture &amp; History of Central-Southern Taiwan</span><small>地理、歷史｜5–7 天</small></li><li><a href="#academic">政治學與歷史 台灣研習團</a> <span class="en" lang="en">Academic visit</span><small>台北、台南或其他相關城市｜7–14 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="central">以這裡索取提案</a></div>
+    </article><article class="panel panel-sub" id="panel-pingtung" data-panel="pingtung">
+      <p class="panel-kind"><span class="key key-sub"></span>科目考察目的地</p>
+      <h3>屏東 <span class="en" lang="en">Pingtung</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-7">南台灣文學與人文考察</a> <span class="en" lang="en">Literature &amp; Humanities in Southern Taiwan</span><small>文學、地理、歷史｜5–7 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="south">以這裡索取提案</a></div>
+    </article><article class="panel panel-city" id="panel-taipei" data-panel="taipei">
+      <p class="panel-kind"><span class="key key-city"></span>華語・學術據點</p>
+      <h3>台北 <span class="en" lang="en">Taipei</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-8">體育交流與訓練</a> <span class="en" lang="en">Sports Training &amp; Exchange</span><small>體育（羽球、籃球）｜5–7 天</small></li><li><a href="#language">華語與文化營</a> <span class="en" lang="en">Chinese language camp</span><small>台北／高雄 Taipei / Kaohsiung｜7–21 天</small></li><li><a href="#academic">政治學與歷史 台灣研習團</a> <span class="en" lang="en">Academic visit</span><small>台北、台南或其他相關城市｜7–14 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="language" data-prefill-region="south">以這裡索取提案</a></div>
+    </article><article class="panel panel-city" id="panel-khcity" data-panel="khcity">
+      <p class="panel-kind"><span class="key key-city"></span>華語・學術據點</p>
+      <h3>高雄 <span class="en" lang="en">Kaohsiung</span></h3>
+      <ul class="panel-trips"><li><a href="#trip-8">體育交流與訓練</a> <span class="en" lang="en">Sports Training &amp; Exchange</span><small>體育（羽球、籃球）｜5–7 天</small></li><li><a href="#language">華語與文化營</a> <span class="en" lang="en">Chinese language camp</span><small>台北／高雄 Taipei / Kaohsiung｜7–21 天</small></li></ul>
+      <div class="panel-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="language" data-prefill-region="south">以這裡索取提案</a></div>
+    </article>
       </div>
     </div>
   </section>
-
-  <footer>資料來源：2026 年 11 月 27 日實際瀏覽 www.funhtrips.com 全站 6 頁、sitemap.xml 與頁面原始碼。</footer>
-</div>
+  <section class="services" id="services" aria-labelledby="svc-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="svc-title">六種旅行方式 <span class="en" lang="en">Six ways to learn in Taiwan</span></h2>
+        <p>知行學旅是設立於台灣、致力推動聯合國永續發展目標（SDGs）的遊學（研學）公司，主要運營教育旅行與商務交流。我們擅長跨域合作，與旅行社、學校、企業組織建立夥伴關係，替客戶規劃並執行符合課程或交流目的的行程。</p>
+      </div>
+      <ul class="svc-list"><li class="svc" id="svc-cas">
+        <svg class="svc-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 19 9.5 8l4 6.5L16 11l5 8Z"/><circle cx="17" cy="5.5" r="2"/></svg>
+        <div>
+          <h3><a href="#region-north">IB CAS 行程</a> <span class="en" lang="en">IB CAS Trips</span></h3>
+          <p>創意、活動、服務是 IB 國際文憑課程核心。我們的 CAS 行程符合 IB 要求，並融入至少兩項聯合國永續發展目標。</p>
+          <p class="en-p" lang="en">CAS programmes that meet IB requirements and cover at least 2 UN SDGs in every trip.</p>
+          <a class="btn-text" href="#plan" data-prefill-type="cas">索取IB CAS 行程提案</a>
+        </div>
+      </li><li class="svc" id="svc-service">
+        <svg class="svc-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 20s-7-4.3-7-9.5A3.8 3.8 0 0 1 12 8a3.8 3.8 0 0 1 7 2.5C19 15.7 12 20 12 20Z"/></svg>
+        <div>
+          <h3><a href="#region-north">服務學習</a> <span class="en" lang="en">Service Learning</span></h3>
+          <p>非 IB 學校也能在學習旅行中加入服務元素。我們分析需求，挑選合適的台灣在地組織共同規劃。</p>
+          <p class="en-p" lang="en">Not an IB school? We analyse your needs and partner with local organisations to add a service element.</p>
+          <a class="btn-text" href="#plan" data-prefill-type="service">索取服務學習提案</a>
+        </div>
+      </li><li class="svc" id="svc-language">
+        <svg class="svc-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M4 5h16v10H10l-4 4v-4H4Z"/><path d="M9 9h6M12 7.5v5"/></svg>
+        <div>
+          <h3><a href="#language">語言與文化</a> <span class="en" lang="en">Language &amp; Culture</span></h3>
+          <p>台灣在地文化、華人歷史文化與原住民文化；並與華語中心及專業教師合作，提供短期華語營。</p>
+          <p class="en-p" lang="en">Taiwanese, Chinese and indigenous culture, plus short-term Chinese language camps with professional teachers.</p>
+          <a class="btn-text" href="#plan" data-prefill-type="language">索取語言與文化提案</a>
+        </div>
+      </li><li class="svc" id="svc-subject">
+        <svg class="svc-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 3h6M10 3v6L5 18a1.5 1.5 0 0 0 1.3 2.2h11.4A1.5 1.5 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/></svg>
+        <div>
+          <h3><a href="#subjects">科目考察・STEAM</a> <span class="en" lang="en">Subject &amp; STEAM Trips</span></h3>
+          <p>依學科標準、課程目標或跨學科專題（PBL）設計的體驗式學科旅行。</p>
+          <p class="en-p" lang="en">Experiential trips built around subject criteria, curriculum goals or interdisciplinary PBL projects.</p>
+          <a class="btn-text" href="#plan" data-prefill-type="subject">索取科目考察・STEAM提案</a>
+        </div>
+      </li><li class="svc" id="svc-academic">
+        <svg class="svc-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9 12 4l9 5Z"/><path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8M3 20h18"/></svg>
+        <div>
+          <h3><a href="#academic">學術參訪</a> <span class="en" lang="en">Academic Visits</span></h3>
+          <p>為大學與企業設計專業主題行程，串連學術單位、NPO 與企業，協助在地聯絡與接待。</p>
+          <p class="en-p" lang="en">Thematic visits for universities and companies, connecting academia, NPOs and industry in Taiwan.</p>
+          <a class="btn-text" href="#plan" data-prefill-type="academic">索取學術參訪提案</a>
+        </div>
+      </li><li class="svc" id="svc-pd">
+        <svg class="svc-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="4" width="16" height="11" rx="1"/><path d="M12 15v5M8 20h8M8 9h5"/></svg>
+        <div>
+          <h3><a href="#plan">研習・演講・工作坊</a> <span class="en" lang="en">PD, Talks &amp; Workshops</span></h3>
+          <p>人才庫擁有各領域持證專業講師，歡迎台灣企業與學校洽詢。</p>
+          <p class="en-p" lang="en">Certified instructors across many fields for schools and companies in Taiwan.</p>
+          <a class="btn-text" href="#plan" data-prefill-type="pd">索取研習・演講・工作坊提案</a>
+        </div>
+      </li></ul>
+    </div>
+  </section>
+  <div class="regions" id="regions">
+    <div class="wrap">
+      <div class="sec-head regions-head">
+        <h2 class="sr-only">依地區探索行程 Trips by region</h2>
+        <p class="regions-lead">由北往南，再到東海岸。每一區列出 CAS 路線的完整創意・活動・服務內容，以及同區的科目考察。</p>
+      </div>
+      <section class="region" id="region-north" aria-labelledby="rg-north">
+      <header class="region-head">
+        <svg class="inset" viewBox="-40 -10 460 700" aria-hidden="true">
+      <defs><clipPath id="clip-north"><rect x="-40" y="-10" width="460" height="150"/></clipPath></defs>
+      <path class="inset-base" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z"/>
+      <path class="inset-hi" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z" clip-path="url(#clip-north)"/>
+    </svg>
+        <div>
+          <p class="region-lat">24.6°N – 25.3°N</p>
+          <h2 id="rg-north">北台灣 <span class="en" lang="en">Northern Taiwan</span></h2>
+          <p class="region-count">1 條 CAS 路線、4 條科目考察</p>
+        </div>
+      </header>
+      <article class="route" id="route-taoyuan">
+      <div class="route-head">
+        <figure class="route-fig"><img src="design/assets/img/taoyuan-coast-algal-reef.jpg" alt="桃園海岸的藻礁與浪花" width="1600" height="1200" loading="lazy"></figure>
+        <div class="route-intro">
+          <p class="route-kind"><span class="key key-cas"></span>IB CAS 服務學習路線</p>
+          <h3>桃園 <span class="en" lang="en">Taoyuan</span></h3>
+          <p class="route-meta"><b>5–7</b> 天 days ｜ 北台灣 <span class="en" lang="en">Northern Taiwan</span></p>
+          <h4 class="sr-only">主題 Themes</h4>
+          <ul class="themes themes-lg"><li>海岸生態復育<span class="en" lang="en">Coastal ecological conservation</span></li><li>海洋客家文化<span class="en" lang="en">Ocean Hakka culture</span></li><li>傳統漁業文化與社區營造<span class="en" lang="en">Fishing heritage &amp; community development</span></li><li>循環再生永續產業<span class="en" lang="en">Recycling to regeneration</span></li></ul>
+          <ul class="sdgs" aria-label="聯合國永續發展目標 SDGs"><li class="sdg" style="--sdg:#FD9D24"><b>SDG 11</b><span>永續城鄉</span><span class="en" lang="en">Sustainable Cities and Communities</span></li><li class="sdg" style="--sdg:#BF8B2E"><b>SDG 12</b><span>責任消費與生產</span><span class="en" lang="en">Responsible Consumption and Production</span></li><li class="sdg" style="--sdg:#3F7E44"><b>SDG 13</b><span>氣候行動</span><span class="en" lang="en">Climate Action</span></li><li class="sdg" style="--sdg:#0A97D9"><b>SDG 14</b><span>保育海洋生態</span><span class="en" lang="en">Life Below Water</span></li></ul>
+        </div>
+      </div>
+      <div class="cas-grid">
+        <div class="cas-col cas-c">
+      <h4><span class="cas-letter" aria-hidden="true">C</span>創意 <span class="en" lang="en">Creativity</span></h4>
+      <ul><li>再生塑木手作與設計<span class="en" lang="en">Crafts with recycled plastic wood</span></li><li>海客美食工作坊<span class="en" lang="en">Ocean Hakka food workshop</span></li><li>海岸生物美術創作<span class="en" lang="en">Coastal animal art creation</span></li></ul>
+    </div>
+        <div class="cas-col cas-a">
+      <h4><span class="cas-letter" aria-hidden="true">A</span>活動 <span class="en" lang="en">Activity</span></h4>
+      <ul><li>獨木舟／立槳<span class="en" lang="en">Canoeing / SUP</span></li><li>自行車遊<span class="en" lang="en">Bike tour</span></li><li>海岸生態探索<span class="en" lang="en">Coastal ecology exploration</span></li></ul>
+    </div>
+        <div class="cas-col cas-s">
+      <h4><span class="cas-letter" aria-hidden="true">S</span>服務 <span class="en" lang="en">Service</span></h4>
+      <ul><li>百年石滬重建<span class="en" lang="en">Century-old fishing stone weir reconstruction</span></li><li>淨灘<span class="en" lang="en">Beach cleaning</span></li><li>海洋廢棄物回收與分類<span class="en" lang="en">Marine debris recycling &amp; sorting</span></li></ul>
+    </div>
+      </div>
+      <p class="route-note">學生將完整體驗：回收廢棄物 → PET 粒料 → 再生塑木 → 環保產品。<span class="en" lang="en">Students follow the full loop: recycled waste → PET pellets → recycled plastic wood → eco-friendly products.</span></p>
+      <div class="route-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="cas" data-prefill-region="north">以這條路線索取提案</a></div>
+    </article>
+      <aside class="circular" aria-labelledby="ce-title">
+      <h4 id="ce-title">塑膠循環經濟 <span class="en" lang="en">Plastic Circular Economy</span></h4>
+      <p class="circular-lead">桃園路線與「科學與地理考察」都會走完這條流程。</p>
+      <ol class="flow"><li>廢棄物管理<span class="en" lang="en">Waste management</span></li><li>塑膠回收<span class="en" lang="en">Plastic recycling</span></li><li>破碎造粒<span class="en" lang="en">Shredding &amp; granulation</span></li><li>研發<span class="en" lang="en">R&amp;D</span></li><li>產品開發<span class="en" lang="en">Product development</span></li></ol>
+      <ul class="facts"><li>合作夥伴以 80% 海洋與陸地回收塑膠製成環保再生塑木（海廢認證標章）。<span class="en" lang="en">Our partner makes recycled composite wood from 80% ocean and land plastic waste (Ocean Waste Certification Mark).</span></li><li>每 100 公斤再生塑木可減少 274 公斤碳排放。<span class="en" lang="en">Every 100 kg of recycled composite wood cuts 274 kg of carbon emissions.</span></li><li>製程廢料可完全回收再製，真正實踐循環經濟。<span class="en" lang="en">All manufacturing waste can be fully recycled and remanufactured.</span></li></ul>
+    </aside>
+      <div class="region-trips">
+        <h3 class="trips-title"><span class="key key-sub"></span>這一區的科目考察 <span class="en" lang="en">Subject trips in this region</span></h3>
+        <ul class="trip-list"><li class="trip" id="trip-1">
+      <div class="trip-main">
+        <h4>北海岸文化與地理考查 <span class="en" lang="en">Culture &amp; Geography of the Northeast Coast</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>台北・宜蘭・東北海岸 <span class="en" lang="en">Northeast Coast &amp; Yilan</span></p>
+        <p class="trip-hl">大屯火山群、海蝕海岸、黃金博物館<span class="en" lang="en">Tatun Volcano Group, erosional coast, Gold Museum</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>地理、歷史</dd></div>
+        <div><dt>年級</dt><dd>小學至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="north">以這個行程索取提案</a>
+    </li><li class="trip" id="trip-3">
+      <div class="trip-main">
+        <h4>北台灣科技與商業考察 <span class="en" lang="en">Technology &amp; Business in Northern Taiwan</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>台北・桃園・新竹 <span class="en" lang="en">Taipei, Taoyuan, Hsinchu</span></p>
+        <p class="trip-hl">青創基地、科學園區、半導體博物館<span class="en" lang="en">Start-up hubs, Science Park, semiconductor museum</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>科學、商業</dd></div>
+        <div><dt>年級</dt><dd>國中至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="north">以這個行程索取提案</a>
+    </li><li class="trip" id="trip-4">
+      <div class="trip-main">
+        <h4>科學與地理考察 <span class="en" lang="en">Science &amp; Geography in Taoyuan</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>桃園 <span class="en" lang="en">Taoyuan</span></p>
+        <p class="trip-hl">塑膠回收與再生全程考察、循環經濟、桃園海岸生態（藻礁、濕地、沙丘、石滬）<span class="en" lang="en">Plastic regeneration, circular recycling, Taoyuan coast (algal reefs, wetlands, dunes, stone weirs)</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>化學、生物、地理</dd></div>
+        <div><dt>年級</dt><dd>國中至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="north">以這個行程索取提案</a>
+    </li><li class="trip" id="trip-5">
+      <div class="trip-main">
+        <h4>STEAM 考察 <span class="en" lang="en">STEAM Trip</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>桃園・新竹 <span class="en" lang="en">Taoyuan, Hsinchu</span></p>
+        <p class="trip-hl">運算思維、邏輯編程、離線機器人、電子積木、科學園區、半導體博物館<span class="en" lang="en">Computational thinking, logic programming, offline robots &amp; tech-cube workshop, Science Park, semiconductor museum</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>STEAM</dd></div>
+        <div><dt>年級</dt><dd>小學至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="north">以這個行程索取提案</a>
+    </li></ul>
+      </div>
+    </section><section class="region" id="region-central" aria-labelledby="rg-central">
+      <header class="region-head">
+        <svg class="inset" viewBox="-40 -10 460 700" aria-hidden="true">
+      <defs><clipPath id="clip-central"><rect x="-40" y="140" width="285" height="240"/></clipPath></defs>
+      <path class="inset-base" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z"/>
+      <path class="inset-hi" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z" clip-path="url(#clip-central)"/>
+    </svg>
+        <div>
+          <p class="region-lat">23.4°N – 24.6°N</p>
+          <h2 id="rg-central">中台灣 <span class="en" lang="en">Central Taiwan</span></h2>
+          <p class="region-count">1 條 CAS 路線、1 條科目考察</p>
+        </div>
+      </header>
+      <article class="route" id="route-chiayi">
+      <div class="route-head">
+        <figure class="route-fig"><img src="design/assets/img/chiayi-alishan-tea-farm.jpg" alt="陽光灑落阿里山高山茶園" width="1600" height="1200" loading="lazy"></figure>
+        <div class="route-intro">
+          <p class="route-kind"><span class="key key-cas"></span>IB CAS 服務學習路線</p>
+          <h3>嘉義・阿里山 <span class="en" lang="en">Chiayi &amp; Alishan</span></h3>
+          <p class="route-meta"><b>5–7</b> 天 days ｜ 中台灣 <span class="en" lang="en">Central Taiwan</span></p>
+          <h4 class="sr-only">主題 Themes</h4>
+          <ul class="themes themes-lg"><li>阿里山探索與森林保育<span class="en" lang="en">Alishan exploration &amp; forest conservation</span></li><li>高山茶園服務<span class="en" lang="en">High-mountain tea farm service</span></li><li>食農教育<span class="en" lang="en">Food &amp; agriculture education</span></li><li>高齡關懷<span class="en" lang="en">Elderly care</span></li></ul>
+          <ul class="sdgs" aria-label="聯合國永續發展目標 SDGs"><li class="sdg" style="--sdg:#4C9F38"><b>SDG 3</b><span>良好健康與福祉</span><span class="en" lang="en">Good Health and Well-being</span></li><li class="sdg" style="--sdg:#BF8B2E"><b>SDG 12</b><span>責任消費與生產</span><span class="en" lang="en">Responsible Consumption and Production</span></li><li class="sdg" style="--sdg:#3F7E44"><b>SDG 13</b><span>氣候行動</span><span class="en" lang="en">Climate Action</span></li><li class="sdg" style="--sdg:#56C02B"><b>SDG 15</b><span>保育陸域生態</span><span class="en" lang="en">Life on Land</span></li></ul>
+        </div>
+      </div>
+      <div class="cas-grid">
+        <div class="cas-col cas-c">
+      <h4><span class="cas-letter" aria-hidden="true">C</span>創意 <span class="en" lang="en">Creativity</span></h4>
+      <ul><li>山產蔬菜料理工作坊<span class="en" lang="en">Mountain vegetable cooking workshop</span></li><li>檜木木作工作坊<span class="en" lang="en">Hinoki woodcraft workshop</span></li><li>台灣高山茶體驗<span class="en" lang="en">Taiwanese high-mountain tea ceremony</span></li></ul>
+    </div>
+        <div class="cas-col cas-a">
+      <h4><span class="cas-letter" aria-hidden="true">A</span>活動 <span class="en" lang="en">Activity</span></h4>
+      <ul><li>採茶體驗<span class="en" lang="en">Tea picking</span></li><li>阿里山健行<span class="en" lang="en">Hiking in Alishan</span></li><li>阿里山小火車山林探索<span class="en" lang="en">Alishan Forest Railway adventure</span></li></ul>
+    </div>
+        <div class="cas-col cas-s">
+      <h4><span class="cas-letter" aria-hidden="true">S</span>服務 <span class="en" lang="en">Service</span></h4>
+      <ul><li>高山茶園服務<span class="en" lang="en">Service at a high-mountain tea farm</span></li><li>淨山服務<span class="en" lang="en">Mountain clean-up</span></li><li>長者關懷服務<span class="en" lang="en">Elderly care</span></li></ul>
+    </div>
+      </div>
+      
+      <div class="route-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="cas" data-prefill-region="central">以這條路線索取提案</a></div>
+    </article>
+      
+      <div class="region-trips">
+        <h3 class="trips-title"><span class="key key-sub"></span>這一區的科目考察 <span class="en" lang="en">Subject trips in this region</span></h3>
+        <ul class="trip-list"><li class="trip" id="trip-6">
+      <div class="trip-main">
+        <h4>台灣中南部人文考察 <span class="en" lang="en">Culture &amp; History of Central-Southern Taiwan</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>台南・嘉義・南投 <span class="en" lang="en">Tainan, Chiayi, Nantou</span></p>
+        <p class="trip-hl">台南歷史古都、嘉義阿里山、南投日月潭<span class="en" lang="en">Historic Tainan, Alishan, Sun Moon Lake</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>地理、歷史</dd></div>
+        <div><dt>年級</dt><dd>國中至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="central">以這個行程索取提案</a>
+    </li></ul>
+      </div>
+    </section><section class="region" id="region-south" aria-labelledby="rg-south">
+      <header class="region-head">
+        <svg class="inset" viewBox="-40 -10 460 700" aria-hidden="true">
+      <defs><clipPath id="clip-south"><rect x="-40" y="380" width="240" height="320"/></clipPath></defs>
+      <path class="inset-base" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z"/>
+      <path class="inset-hi" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z" clip-path="url(#clip-south)"/>
+    </svg>
+        <div>
+          <p class="region-lat">21.9°N – 23.4°N</p>
+          <h2 id="rg-south">南台灣 <span class="en" lang="en">Southern Taiwan</span></h2>
+          <p class="region-count">1 條 CAS 路線、2 條科目考察</p>
+        </div>
+      </header>
+      <article class="route" id="route-kaohsiung">
+      <div class="route-head">
+        <figure class="route-fig"><img src="design/assets/img/meinong-oil-paper-umbrellas.jpg" alt="美濃油紙傘彩繪教室牆上的彩色紙傘" width="1600" height="1200" loading="lazy"></figure>
+        <div class="route-intro">
+          <p class="route-kind"><span class="key key-cas"></span>IB CAS 服務學習路線</p>
+          <h3>高雄・美濃 <span class="en" lang="en">Kaohsiung &amp; Meinong</span></h3>
+          <p class="route-meta"><b>5–7</b> 天 days ｜ 南台灣 <span class="en" lang="en">Southern Taiwan</span></p>
+          <h4 class="sr-only">主題 Themes</h4>
+          <ul class="themes themes-lg"><li>客家文化體驗<span class="en" lang="en">Hakka culture</span></li><li>高齡關懷<span class="en" lang="en">Elderly care</span></li><li>社區營造與語言復振<span class="en" lang="en">Community development &amp; language revitalisation</span></li><li>動物生命教育<span class="en" lang="en">Animal-care life education</span></li></ul>
+          <ul class="sdgs" aria-label="聯合國永續發展目標 SDGs"><li class="sdg" style="--sdg:#4C9F38"><b>SDG 3</b><span>良好健康與福祉</span><span class="en" lang="en">Good Health and Well-being</span></li><li class="sdg" style="--sdg:#FD9D24"><b>SDG 11</b><span>永續城鄉</span><span class="en" lang="en">Sustainable Cities and Communities</span></li><li class="sdg" style="--sdg:#BF8B2E"><b>SDG 12</b><span>責任消費與生產</span><span class="en" lang="en">Responsible Consumption and Production</span></li><li class="sdg" style="--sdg:#56C02B"><b>SDG 15</b><span>保育陸域生態</span><span class="en" lang="en">Life on Land</span></li></ul>
+        </div>
+      </div>
+      <div class="cas-grid">
+        <div class="cas-col cas-c">
+      <h4><span class="cas-letter" aria-hidden="true">C</span>創意 <span class="en" lang="en">Creativity</span></h4>
+      <ul><li>油紙傘彩繪<span class="en" lang="en">Oil-paper umbrella painting</span></li><li>客家擂茶與美食工作坊<span class="en" lang="en">Hakka lei-cha &amp; food workshop</span></li><li>生命教育故事創作<span class="en" lang="en">Animal life-story creation</span></li></ul>
+    </div>
+        <div class="cas-col cas-a">
+      <h4><span class="cas-letter" aria-hidden="true">A</span>活動 <span class="en" lang="en">Activity</span></h4>
+      <ul><li>美濃單車行<span class="en" lang="en">Biking around Meinong</span></li><li>柴山健行<span class="en" lang="en">Hiking Shoushan (Chaishan)</span></li><li>高雄環狀輕軌體驗<span class="en" lang="en">Kaohsiung Circular Light Rail</span></li></ul>
+    </div>
+        <div class="cas-col cas-s">
+      <h4><span class="cas-letter" aria-hidden="true">S</span>服務 <span class="en" lang="en">Service</span></h4>
+      <ul><li>在地學校文化交流與英語服務<span class="en" lang="en">Cultural exchange &amp; English service at a local school</span></li><li>長者關懷服務<span class="en" lang="en">Elderly care</span></li><li>有機農事服務<span class="en" lang="en">Organic farming</span></li><li>動物保護園區服務<span class="en" lang="en">Service at an animal protection site</span></li></ul>
+    </div>
+      </div>
+      
+      <div class="route-actions"><a class="btn btn-ask" href="#plan" data-prefill-type="cas" data-prefill-region="south">以這條路線索取提案</a></div>
+    </article>
+      
+      <div class="region-trips">
+        <h3 class="trips-title"><span class="key key-sub"></span>這一區的科目考察 <span class="en" lang="en">Subject trips in this region</span></h3>
+        <ul class="trip-list"><li class="trip" id="trip-7">
+      <div class="trip-main">
+        <h4>南台灣文學與人文考察 <span class="en" lang="en">Literature &amp; Humanities in Southern Taiwan</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>高雄・屏東 <span class="en" lang="en">Kaohsiung, Pingtung</span></p>
+        <p class="trip-hl">城市文學走讀、熱帶氣候人文考查<span class="en" lang="en">Literary city walks, tropical climate and culture</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>文學、地理、歷史</dd></div>
+        <div><dt>年級</dt><dd>小學至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="south">以這個行程索取提案</a>
+    </li><li class="trip" id="trip-8">
+      <div class="trip-main">
+        <h4>體育交流與訓練 <span class="en" lang="en">Sports Training &amp; Exchange</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>台北／高雄 <span class="en" lang="en">Taipei / Kaohsiung</span></p>
+        <p class="trip-hl">羽球、籃球訓練或與在地學校體育交流<span class="en" lang="en">Badminton/basketball training or exchange with local schools</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>體育（羽球、籃球）</dd></div>
+        <div><dt>年級</dt><dd>小學至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="south">以這個行程索取提案</a>
+    </li></ul>
+      </div>
+    </section><section class="region" id="region-east" aria-labelledby="rg-east">
+      <header class="region-head">
+        <svg class="inset" viewBox="-40 -10 460 700" aria-hidden="true">
+      <defs><clipPath id="clip-east"><rect x="240" y="140" width="200" height="420"/></clipPath></defs>
+      <path class="inset-base" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z"/>
+      <path class="inset-hi" d="M279.0 19.0 C288.7 20.0 302.3 41.0 313.0 48.0 C323.7 55.0 335.7 56.7 343.0 61.0 C350.3 65.3 359.5 66.8 357.0 74.0 C354.5 81.2 331.7 91.0 328.0 104.0 C324.3 117.0 338.7 133.0 335.0 152.0 C331.3 171.0 313.2 199.0 306.0 218.0 C298.8 237.0 297.7 242.2 292.0 266.0 C286.3 289.8 279.0 334.0 272.0 361.0 C265.0 388.0 259.8 404.3 250.0 428.0 C240.2 451.7 226.3 477.8 213.0 503.0 C199.7 528.2 178.3 552.0 170.0 579.0 C161.7 606.0 168.2 651.7 163.0 665.0 C157.8 678.3 143.5 666.8 139.0 659.0 C134.5 651.2 139.3 631.5 136.0 618.0 C132.7 604.5 126.2 588.2 119.0 578.0 C111.8 567.8 102.3 565.3 93.0 557.0 C83.7 548.7 70.8 538.5 63.0 528.0 C55.2 517.5 50.8 506.0 46.0 494.0 C41.2 482.0 35.2 475.0 34.0 456.0 C32.8 437.0 37.5 402.2 39.0 380.0 C40.5 357.8 38.2 342.0 43.0 323.0 C47.8 304.0 57.7 285.0 68.0 266.0 C78.3 247.0 93.2 227.3 105.0 209.0 C116.8 190.7 127.7 172.5 139.0 156.0 C150.3 139.5 162.7 125.0 173.0 110.0 C183.3 95.0 187.3 77.3 201.0 66.0 C214.7 54.7 242.0 49.8 255.0 42.0 C268.0 34.2 269.3 18.0 279.0 19.0Z" clip-path="url(#clip-east)"/>
+    </svg>
+        <div>
+          <p class="region-lat">22.7°N – 24.6°N</p>
+          <h2 id="rg-east">東台灣 <span class="en" lang="en">Eastern Taiwan</span></h2>
+          <p class="region-count">1 條科目考察</p>
+        </div>
+      </header>
+      
+      
+      <div class="region-trips">
+        <h3 class="trips-title"><span class="key key-sub"></span>這一區的科目考察 <span class="en" lang="en">Subject trips in this region</span></h3>
+        <ul class="trip-list"><li class="trip" id="trip-2">
+      <div class="trip-main">
+        <h4>花蓮地理考查 <span class="en" lang="en">Geography Trip to Hualien</span></h4>
+        <p class="trip-dest"><span class="key key-sub"></span>台北・花蓮 <span class="en" lang="en">Taipei &amp; Hualien</span></p>
+        <p class="trip-hl">花東縱谷、斷崖、太魯閣峽谷、珊瑚礁與礫石海岸<span class="en" lang="en">East Rift Valley, cliffs, Taroko Gorge, coral reefs, gravel beaches</span></p>
+      </div>
+      <dl class="trip-facts">
+        <div><dt>科目</dt><dd>地理、歷史</dd></div>
+        <div><dt>年級</dt><dd>國中至高中</dd></div>
+        <div><dt>天數</dt><dd>5–7 天</dd></div>
+      </dl>
+      <a class="btn btn-ask" href="#plan" data-prefill-type="subject" data-prefill-region="east">以這個行程索取提案</a>
+    </li></ul>
+      </div>
+    </section>
+    </div>
+  </div>
+  <section class="subjects" id="subjects" aria-labelledby="sub-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="sub-title">科目考察總表 <span class="en" lang="en">All subject &amp; STEAM trips</span></h2>
+        <p>依學科標準、課程目標或跨學科專題（PBL）設計，每條都可依年級與天數調整。<span class="en" lang="en">Built around subject criteria, curriculum goals or PBL projects.</span></p>
+      </div>
+      <div class="table-wrap">
+      <table class="tbl tbl-sub">
+        <caption class="sr-only">8 條科目考察行程：地區、目的地、科目、重點、年級、天數</caption>
+        <thead><tr><th scope="col">行程 Trip</th><th scope="col">地區</th><th scope="col">目的地 Destination</th><th scope="col">科目 Subjects</th><th scope="col">考察重點 Highlights</th><th scope="col">年級</th><th scope="col">天數</th></tr></thead>
+        <tbody><tr>
+          <th scope="row"><a href="#trip-1">北海岸文化與地理考查</a><span class="en" lang="en">Culture &amp; Geography of the Northeast Coast</span></th>
+          <td data-label="地區">北台灣</td>
+          <td data-label="目的地">台北・宜蘭・東北海岸<span class="en" lang="en">Northeast Coast &amp; Yilan</span></td>
+          <td data-label="科目">地理、歷史<span class="en" lang="en">Geography, History</span></td>
+          <td data-label="重點">大屯火山群、海蝕海岸、黃金博物館</td>
+          <td data-label="年級">小學至高中<span class="en" lang="en">All grades</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr><tr>
+          <th scope="row"><a href="#trip-2">花蓮地理考查</a><span class="en" lang="en">Geography Trip to Hualien</span></th>
+          <td data-label="地區">東台灣</td>
+          <td data-label="目的地">台北・花蓮<span class="en" lang="en">Taipei &amp; Hualien</span></td>
+          <td data-label="科目">地理、歷史<span class="en" lang="en">Geography, History</span></td>
+          <td data-label="重點">花東縱谷、斷崖、太魯閣峽谷、珊瑚礁與礫石海岸</td>
+          <td data-label="年級">國中至高中<span class="en" lang="en">Secondary</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr><tr>
+          <th scope="row"><a href="#trip-3">北台灣科技與商業考察</a><span class="en" lang="en">Technology &amp; Business in Northern Taiwan</span></th>
+          <td data-label="地區">北台灣</td>
+          <td data-label="目的地">台北・桃園・新竹<span class="en" lang="en">Taipei, Taoyuan, Hsinchu</span></td>
+          <td data-label="科目">科學、商業<span class="en" lang="en">Science, Business</span></td>
+          <td data-label="重點">青創基地、科學園區、半導體博物館</td>
+          <td data-label="年級">國中至高中<span class="en" lang="en">Secondary</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr><tr>
+          <th scope="row"><a href="#trip-4">科學與地理考察</a><span class="en" lang="en">Science &amp; Geography in Taoyuan</span></th>
+          <td data-label="地區">北台灣</td>
+          <td data-label="目的地">桃園<span class="en" lang="en">Taoyuan</span></td>
+          <td data-label="科目">化學、生物、地理<span class="en" lang="en">Chemistry, Biology, Geography</span></td>
+          <td data-label="重點">塑膠回收與再生全程考察、循環經濟、桃園海岸生態（藻礁、濕地、沙丘、石滬）</td>
+          <td data-label="年級">國中至高中<span class="en" lang="en">Secondary</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr><tr>
+          <th scope="row"><a href="#trip-5">STEAM 考察</a><span class="en" lang="en">STEAM Trip</span></th>
+          <td data-label="地區">北台灣</td>
+          <td data-label="目的地">桃園・新竹<span class="en" lang="en">Taoyuan, Hsinchu</span></td>
+          <td data-label="科目">STEAM<span class="en" lang="en">STEAM</span></td>
+          <td data-label="重點">運算思維、邏輯編程、離線機器人、電子積木、科學園區、半導體博物館</td>
+          <td data-label="年級">小學至高中<span class="en" lang="en">All grades</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr><tr>
+          <th scope="row"><a href="#trip-6">台灣中南部人文考察</a><span class="en" lang="en">Culture &amp; History of Central-Southern Taiwan</span></th>
+          <td data-label="地區">中台灣</td>
+          <td data-label="目的地">台南・嘉義・南投<span class="en" lang="en">Tainan, Chiayi, Nantou</span></td>
+          <td data-label="科目">地理、歷史<span class="en" lang="en">Geography, History</span></td>
+          <td data-label="重點">台南歷史古都、嘉義阿里山、南投日月潭</td>
+          <td data-label="年級">國中至高中<span class="en" lang="en">Secondary</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr><tr>
+          <th scope="row"><a href="#trip-7">南台灣文學與人文考察</a><span class="en" lang="en">Literature &amp; Humanities in Southern Taiwan</span></th>
+          <td data-label="地區">南台灣</td>
+          <td data-label="目的地">高雄・屏東<span class="en" lang="en">Kaohsiung, Pingtung</span></td>
+          <td data-label="科目">文學、地理、歷史<span class="en" lang="en">Literature, Geography, History</span></td>
+          <td data-label="重點">城市文學走讀、熱帶氣候人文考查</td>
+          <td data-label="年級">小學至高中<span class="en" lang="en">All grades</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr><tr>
+          <th scope="row"><a href="#trip-8">體育交流與訓練</a><span class="en" lang="en">Sports Training &amp; Exchange</span></th>
+          <td data-label="地區">南台灣</td>
+          <td data-label="目的地">台北／高雄<span class="en" lang="en">Taipei / Kaohsiung</span></td>
+          <td data-label="科目">體育（羽球、籃球）<span class="en" lang="en">PE (badminton, basketball)</span></td>
+          <td data-label="重點">羽球、籃球訓練或與在地學校體育交流</td>
+          <td data-label="年級">小學至高中<span class="en" lang="en">All grades</span></td>
+          <td data-label="天數">5–7 天</td>
+        </tr></tbody>
+      </table>
+      </div>
+      <p class="sec-cta"><a class="btn btn-ask" href="#plan" data-prefill-type="subject">索取科目考察提案</a></p>
+    </div>
+  </section>
+  <section class="language" id="language" aria-labelledby="lang-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="lang-title">語言與文化 <span class="en" lang="en">Language &amp; Culture</span></h2>
+        <p>文化體驗是所有行程的核心：傳統中華文化、台灣在地文化與原住民文化，依學校與學生需求設計。</p>
+      </div>
+      <div class="lang-grid">
+        <div class="lang-info">
+          <h3>短期華語課程 <span class="en" lang="en">Short-term Chinese programmes</span></h3>
+          <p>與台灣專業華語中心及中文教師合作，提供母語（文學）與非母語學習者的短期華語課程。</p>
+          <p class="en-p" lang="en">Short-term Chinese programmes for native (literacy) and non-native learners, with professional language centres and teachers.</p>
+          <dl class="lang-facts">
+            <div><dt>地點 Where</dt><dd>台北／高雄 Taipei / Kaohsiung</dd></div>
+            <div><dt>天數 Days</dt><dd><b>7–21</b> 天</dd></div>
+          </dl>
+        </div>
+        <ul class="lang-gallery"><li><img src="design/assets/img/culture-tainan-lanterns.jpg" alt="台南花燈下的人潮" loading="lazy" width="400" height="400"></li><li><img src="design/assets/img/culture-keelung-night-market.jpg" alt="基隆廟口夜市的黃色燈籠" loading="lazy" width="400" height="400"></li><li><img src="design/assets/img/culture-temple-lanterns.jpg" alt="廟宇屋簷下的彩繪燈籠" loading="lazy" width="400" height="400"></li><li><img src="design/assets/img/culture-dadaocheng-market.jpg" alt="大稻埕的彩色編織袋" loading="lazy" width="400" height="400"></li></ul>
+      </div>
+      <div class="table-wrap">
+      <table class="tbl tbl-ab">
+        <caption>方案 A／B 比較 <span class="en" lang="en">Program A vs. Program B</span></caption>
+        <thead><tr><th scope="col"><span class="sr-only">項目</span></th><th scope="col"><span class="plan-id">A</span>中文課程 + 文化體驗<span class="en" lang="en">Chinese Learning + Cultural Experience</span></th><th scope="col"><span class="plan-id">B</span>文化體驗 + 中文應用<span class="en" lang="en">Cultural Immersion + Chinese Practice</span></th></tr></thead>
+        <tbody><tr>
+          <th scope="row">方案優點<span class="en" lang="en">Advantages</span></th>
+          <td data-label="方案 A">兼顧語言學習與文化體驗，兩者分開安排，行程更有彈性、內容更多元。<span class="en" lang="en">Balances both, with a flexible and diverse itinerary.</span></td>
+          <td data-label="方案 B">浸潤式學習，活動多元，可依學習或學校課程需求設計。<span class="en" lang="en">Immersive, activity-rich, with Chinese practice built in.</span></td>
+        </tr><tr>
+          <th scope="row">中文學習<span class="en" lang="en">Chinese learning</span></th>
+          <td data-label="方案 A">於大學華語中心或私人華語教室上課。<span class="en" lang="en">Classes at a university or private language centre.</span></td>
+          <td data-label="方案 B">行程中結合語言練習活動，學生在行程中應用華語。<span class="en" lang="en">Language practice woven into the itinerary.</span></td>
+        </tr><tr>
+          <th scope="row">文化體驗<span class="en" lang="en">Cultural experience</span></th>
+          <td data-label="方案 A">由知行學旅安排或部分配合語言中心，依學生興趣設計。<span class="en" lang="en">Arranged by us or partly with the language centre.</span></td>
+          <td data-label="方案 B">由知行學旅安排，依學生興趣與需求設計。<span class="en" lang="en">Arranged by us around student interests.</span></td>
+        </tr><tr>
+          <th scope="row">主題學習<span class="en" lang="en">Thematic learning</span></th>
+          <td data-label="方案 A">視需求將主題融入中文課或文化活動。<span class="en" lang="en">Themes integrated into classes or cultural activities.</span></td>
+          <td data-label="方案 B">學校可指定主題，行程依主題設計。<span class="en" lang="en">Itinerary designed around a theme your school specifies.</span></td>
+        </tr><tr>
+          <th scope="row">地點與天數<span class="en" lang="en">Location &amp; days</span></th>
+          <td data-label="方案 A">5–30 天；大學校園、單一城市或跨縣市。<span class="en" lang="en">5–30 days; single or multiple cities.</span></td>
+          <td data-label="方案 B">5–30 天；單一城市或跨縣市。<span class="en" lang="en">5–30 days; single or multiple cities.</span></td>
+        </tr><tr>
+          <th scope="row">計費方式<span class="en" lang="en">Pricing</span></th>
+          <td data-label="方案 A">語言課依語言中心標準；其餘行程由知行學旅計費。<span class="en" lang="en">Classes charged by the language centre; other activities by us.</span></td>
+          <td data-label="方案 B">依行程與活動內容由知行學旅計費。<span class="en" lang="en">Bespoke itinerary arranged and charged by us.</span></td>
+        </tr></tbody>
+      </table>
+      </div>
+      <div class="lang-more">
+        <div><h3>其他可安排的活動 <span class="en" lang="en">Also available</span></h3><p>語言交換、在地學校交流、大學參訪、服務學習、在地企業組織參訪、SDGs 等，可依需求與預算安排。</p><p class="en-p" lang="en">Language exchange, local school visits, university tours, service learning, company visits, SDGs and more — arranged to your needs and budget.</p></div>
+        <div><h3>方案皆包含 <span class="en" lang="en">What's included</span></h3><p>方案皆含台灣在地食宿與交通安排，並有專業人員隨團帶領。</p><p class="en-p" lang="en">Includes local accommodation, meals and transport in Taiwan, led by professionals.</p></div>
+      </div>
+      <p class="sec-cta"><a class="btn btn-ask" href="#plan" data-prefill-type="language">索取華語與文化營提案</a></p>
+    </div>
+  </section>
+  <section class="academic" id="academic" aria-labelledby="ac-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="ac-title">學術參訪 <span class="en" lang="en">Academic Visits</span></h2>
+        <p>串連學術單位、在地非營利組織與企業，我們的學術參訪不只停留在拜訪，而是深入交流與探索，了解台灣的學術、產業與社會文化脈絡，建立有意義的合作關係。</p>
+        <p class="en-p" lang="en">Connecting universities, local NPOs and businesses, our academic visits go beyond site visits to real exchange — insight into Taiwan's academic, industrial and socio-cultural context, and lasting partnerships.</p>
+      </div>
+      <article class="sample">
+        <figure class="sample-fig"><img src="design/assets/img/academic-jingmei-courtroom.jpg" alt="學生在景美人權博物館法庭聆聽導覽" width="1600" height="1200" loading="lazy"></figure>
+        <div class="sample-body">
+          <p class="route-kind"><span class="key key-city"></span>範例團 Sample programme</p>
+          <h3>政治學與歷史 台灣研習團 <span class="en" lang="en">Political Science &amp; History — Taiwan Study Trip</span></h3>
+          <p class="route-meta"><b>7–14</b> 天 days ｜ 台北、台南或其他相關城市 <span class="en" lang="en">Taipei, Tainan or other related cities</span></p>
+          <ul class="sdgs" aria-label="聯合國永續發展目標 SDGs"><li class="sdg" style="--sdg:#4C9F38"><b>SDG 3</b><span>良好健康與福祉</span><span class="en" lang="en">Good Health and Well-being</span></li><li class="sdg" style="--sdg:#DD1367"><b>SDG 10</b><span>減少不平等</span><span class="en" lang="en">Reduced Inequalities</span></li><li class="sdg" style="--sdg:#FD9D24"><b>SDG 11</b><span>永續城鄉</span><span class="en" lang="en">Sustainable Cities and Communities</span></li><li class="sdg" style="--sdg:#00689D"><b>SDG 16</b><span>和平正義與健全制度</span><span class="en" lang="en">Peace, Justice and Strong Institutions</span></li></ul>
+          <div class="blocks"><div class="block"><h4>參訪 <span class="en" lang="en">Visit</span></h4><ul><li>中央政府機關<span class="en" lang="en">Central government</span></li><li>歷史景點<span class="en" lang="en">Historical sites</span></li><li>政黨總部<span class="en" lang="en">Political party headquarters</span></li></ul></div><div class="block"><h4>探索 <span class="en" lang="en">Explore</span></h4><ul><li>政治體制<span class="en" lang="en">Political system</span></li><li>司法體系<span class="en" lang="en">Judicial system</span></li><li>台灣民主轉型<span class="en" lang="en">Taiwan's democratic transition</span></li></ul></div><div class="block"><h4>參與 <span class="en" lang="en">Participate</span></h4><ul><li>公共事務與社會關懷議題<span class="en" lang="en">Public affairs &amp; social care issues</span></li><li>大學學術講座<span class="en" lang="en">University academic seminars</span></li></ul></div><div class="block"><h4>研究 <span class="en" lang="en">Research</span></h4><ul><li>街頭訪談：認識台灣人<span class="en" lang="en">Street interviews with Taiwanese people</span></li><li>台美關係<span class="en" lang="en">Taiwan–U.S. relations</span></li></ul></div></div>
+          <a class="btn btn-ask" href="#plan" data-prefill-type="academic">以這個範例團索取提案</a>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="about" id="about" aria-labelledby="ab-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="ab-title">關於知行學旅 <span class="en" lang="en">About us</span></h2>
+        <p>知行學旅由擁有超過十年海外學校與非營利組織工作經驗的教師創立，在台灣與香港的國際學校及 NPO 累積了豐富的教學與教育旅行規劃經驗。</p>
+        <p class="en-p" lang="en">Founded by teachers and NPO workers with over 10 years of experience organising educational trips for international schools and NPOs in Taiwan and Hong Kong.</p>
+      </div>
+      <ul class="soundings"><li><b>10+</b><span>年國際學校與 NPO 經驗</span><span class="en" lang="en">years with international schools &amp; NPOs</span></li><li><b>3</b><span>條北中南 CAS 路線</span><span class="en" lang="en">CAS routes: north, central, south</span></li><li><b>8</b><span>條科目考察行程</span><span class="en" lang="en">subject trip templates</span></li><li><b>2+</b><span>項 SDGs／每趟行程</span><span class="en" lang="en">UN SDGs in every trip</span></li></ul>
+      <div class="vm">
+        <div><h3>願景 <span class="en" lang="en">Vision</span></h3><p>連結教育與企業界，透過客製的主題化旅行，協助青年學子拓展視野、實踐所學、接觸全球議題、培養全球公民意識。</p><p class="en-p" lang="en">To connect education and business, helping young people expand their horizons, practise what they learn and engage with global issues through travel.</p></div>
+        <div><h3>使命 <span class="en" lang="en">Mission</span></h3><p>協助學校和企業設計符合需求的遊學、學術或商務交流行程，並協同旅行社執行，減少溝通時間成本，更好地達成旅行目的。</p><p class="en-p" lang="en">To design itineraries aligned with each client's curriculum or goals and execute them with travel-agency partners — less back-and-forth, better outcomes.</p></div>
+      </div>
+      <div class="partners"><h3>我們串連的夥伴 <span class="en" lang="en">Who we connect</span></h3><ul><li>學校 Schools</li><li>旅行社 Travel Agencies</li><li>課程 Curriculum</li><li>企業組織 Enterprises</li><li>全球議題 Global Issues</li></ul></div>
+      <div class="placeholder" role="note">
+        <p><b>待補：合作學校 logo／老師推薦</b></p>
+        <p>此區預留給合作學校標誌與帶隊老師的推薦語（目前尚無素材）。<span class="en" lang="en">Placeholder: partner school logos &amp; teacher testimonials.</span></p>
+      </div>
+    </div>
+  </section>
+  <section class="plan" id="plan" aria-labelledby="plan-title">
+    <div class="wrap plan-wrap">
+      <div class="plan-intro">
+        <h2 id="plan-title">規劃你的路線 <span class="en" lang="en">Plan your route</span></h2>
+        <p>告訴我們學生人數、想去的地區與學習目標，我們會在 2 個工作天內回覆一份客製提案方向。</p>
+        <p class="en-p" lang="en">Tell us about your group and goals — we reply with a tailored proposal within 2 working days.</p>
+        <p class="plan-direct">也可以直接聯絡：<a href="mailto:office@funhorizonedutrips.com">office@funhorizonedutrips.com</a><br><a href="tel:+886911747378">+886-911-747-378</a></p>
+      </div>
+      <form class="inq" data-inquiry novalidate>
+        <fieldset class="f-type">
+          <legend>想規劃哪一種旅行？ <span class="en" lang="en">Trip type</span> <span class="req">必填</span></legend>
+          <div class="type-cards"><label class="type-card">
+            <input type="radio" name="type" value="cas" required>
+            <span class="type-face"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 19 9.5 8l4 6.5L16 11l5 8Z"/><circle cx="17" cy="5.5" r="2"/></svg><span class="type-zh">IB CAS 行程</span><span class="en" lang="en">IB CAS trip</span></span>
+          </label><label class="type-card">
+            <input type="radio" name="type" value="service" required>
+            <span class="type-face"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 20s-7-4.3-7-9.5A3.8 3.8 0 0 1 12 8a3.8 3.8 0 0 1 7 2.5C19 15.7 12 20 12 20Z"/></svg><span class="type-zh">服務學習</span><span class="en" lang="en">Service learning</span></span>
+          </label><label class="type-card">
+            <input type="radio" name="type" value="language" required>
+            <span class="type-face"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M4 5h16v10H10l-4 4v-4H4Z"/><path d="M9 9h6M12 7.5v5"/></svg><span class="type-zh">華語與文化營</span><span class="en" lang="en">Language &amp; culture</span></span>
+          </label><label class="type-card">
+            <input type="radio" name="type" value="subject" required>
+            <span class="type-face"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 3h6M10 3v6L5 18a1.5 1.5 0 0 0 1.3 2.2h11.4A1.5 1.5 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/></svg><span class="type-zh">科目考察／STEAM</span><span class="en" lang="en">Subject / STEAM</span></span>
+          </label><label class="type-card">
+            <input type="radio" name="type" value="academic" required>
+            <span class="type-face"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9 12 4l9 5Z"/><path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8M3 20h18"/></svg><span class="type-zh">學術參訪</span><span class="en" lang="en">Academic visit</span></span>
+          </label><label class="type-card">
+            <input type="radio" name="type" value="pd" required>
+            <span class="type-face"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="4" width="16" height="11" rx="1"/><path d="M12 15v5M8 20h8M8 9h5"/></svg><span class="type-zh">研習／工作坊</span><span class="en" lang="en">PD / workshop</span></span>
+          </label><label class="type-card">
+            <input type="radio" name="type" value="unsure" required>
+            <span class="type-face"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5Z"/></svg><span class="type-zh">還不確定，想先聊聊</span><span class="en" lang="en">Not sure yet</span></span>
+          </label></div>
+        </fieldset>
+        <fieldset class="f-size">
+          <legend>人數 <span class="en" lang="en">Group size</span> <span class="req">必填</span></legend>
+          <div class="chips"><label class="chip"><input type="radio" name="group_size" value="1-15" required><span>15 人以下</span></label><label class="chip"><input type="radio" name="group_size" value="16-30" required><span>16–30 人</span></label><label class="chip"><input type="radio" name="group_size" value="31-60" required><span>31–60 人</span></label><label class="chip"><input type="radio" name="group_size" value="60+" required><span>60 人以上</span></label></div>
+        </fieldset>
+        <fieldset class="f-regions">
+          <legend>想去的地區 <span class="en" lang="en">Regions</span> <span class="opt">可複選</span></legend>
+          <div class="chips"><label class="chip chip-region"><input type="checkbox" name="regions" value="north"><span>北台灣</span></label><label class="chip chip-region"><input type="checkbox" name="regions" value="central"><span>中台灣</span></label><label class="chip chip-region"><input type="checkbox" name="regions" value="south"><span>南台灣</span></label><label class="chip chip-region"><input type="checkbox" name="regions" value="east"><span>東台灣</span></label></div>
+        </fieldset>
+        <div class="f-row">
+          <label class="field"><span>年級 <span class="en" lang="en">Grade</span></span><input type="text" name="grade" placeholder="例：G10–G11、高一"></label>
+          <label class="field"><span>預計月份 <span class="en" lang="en">Month</span></span><input type="month" name="month"></label>
+        </div>
+        <div class="f-row">
+          <label class="field"><span>學校／單位 <span class="en" lang="en">School</span></span><input type="text" name="school" autocomplete="organization"></label>
+          <label class="field"><span>聯絡人 <span class="en" lang="en">Name</span></span><input type="text" name="name" autocomplete="name"></label>
+        </div>
+        <label class="field"><span>Email <span class="req">必填</span></span><input type="email" name="email" required autocomplete="email"></label>
+        <label class="field"><span>想達成的學習目標或其他需求 <span class="en" lang="en">Message</span></span><textarea name="message" rows="4" placeholder="例：想結合 SDG 14 與淨灘服務，需要 CAS 反思時段"></textarea></label>
+        <button type="submit" class="btn btn-submit">送出，索取客製提案</button>
+        <div data-inquiry-result hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-brand"><b>知行學旅有限公司</b><span class="en" lang="en">Fun Horizon Educational Trips Co., Ltd.</span></p>
+      <p>統一編號 94214379</p>
+    </div>
+    <address>
+      <p>330 桃園市桃園區中埔一街 341 號 3 樓<span class="en" lang="en">3F, No. 341, Zhongpu 1st St., Taoyuan Dist., Taoyuan City 330, Taiwan</span></p>
+      <p><a href="tel:+886911747378">+886-911-747-378</a>｜<a href="mailto:office@funhorizonedutrips.com">office@funhorizonedutrips.com</a>｜<a href="https://www.linkedin.com/company/99383727" rel="noopener">LinkedIn</a></p>
+    </address>
+    <p class="copy">© 2026 知行學旅 Fun Horizon Educational Trips</p>
+  </div>
+</footer>
+<script src="design/concepts/03-island-map/script.js" defer></script>
+<script src="design/shared/inquiry.js" defer></script>
 </body>
 </html>
